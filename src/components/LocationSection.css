@@ -1,0 +1,549 @@
+/* =========================================
+   LOCATION SECTION
+========================================= */
+
+.location-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 700px;
+
+  overflow: hidden;
+
+  background: #f7ecdf;
+  color: #806346;
+
+  padding: 15px 10px 70px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   TOP FADE
+========================================= */
+
+.location-fade-top {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 60px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 236, 223, 0),
+    #f7ecdf
+  );
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.location-content {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+  max-width: 620px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.location-eyebrow {
+  margin: 0 0 5px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 400;
+
+  letter-spacing: 3px;
+
+  color: #92704b;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.location-title {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(43px, 9vw, 58px);
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.location-divider {
+  width: 170px;
+
+  margin: 10px auto 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.location-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(178, 138, 74, 0.5);
+}
+
+.location-divider b {
+  font-size: 10px;
+
+  font-weight: 400;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   MAP FRAME
+========================================= */
+
+.location-map-frame {
+  position: relative;
+
+  width: 100%;
+  max-width: 620px;
+
+  height: 470px;
+
+  margin: 18px auto 0;
+
+  overflow: hidden;
+
+  background: transparent;
+
+  border: none;
+
+  outline: none;
+
+  box-shadow: none;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   DECORATIVE BORDER
+========================================= */
+
+.map-border {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: fill;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  z-index: 3;
+}
+
+
+/* =========================================
+   MAP
+========================================= */
+
+.location-map {
+  position: absolute;
+
+  /*
+     IMPORTANT:
+     Keep equal space around the map
+     so it stays completely inside
+     the decorative border.
+  */
+
+  top: 62px;
+
+  left: 18px;
+
+  right: 18px;
+
+  bottom: 62px;
+
+  overflow: hidden;
+
+  border-radius: 21px;
+
+  background: #eee7dc;
+
+  z-index: 2;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   GOOGLE MAP
+========================================= */
+
+.location-map iframe {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  border: 0;
+
+  border-radius: inherit;
+}
+
+
+/* =========================================
+   VENUE INFO
+========================================= */
+
+.location-info {
+  margin-top: 25px;
+
+  text-align: center;
+}
+
+.location-info h3 {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 30px;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  color: #725638;
+}
+
+.location-info p {
+  margin: 7px 0 17px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 15px;
+
+  line-height: 1.35;
+
+  color: #92704b;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.location-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 125px;
+
+  padding: 9px 18px;
+
+  border: 1px solid rgba(178, 138, 74, 0.6);
+
+  background: rgba(255, 250, 243, 0.45);
+
+  color: #806346;
+
+  text-decoration: none;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.location-button:hover {
+  background: rgba(178, 138, 74, 0.12);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   FLORAL DECORATION
+========================================= */
+
+.location-flower {
+  position: absolute;
+
+  z-index: 3;
+
+  width: 155px;
+
+  height: auto;
+
+  opacity: 0.75;
+
+  pointer-events: none;
+}
+
+
+/* LEFT */
+
+.location-flower-left {
+  left: -75px;
+
+  bottom: -15px;
+
+  transform: rotate(8deg);
+}
+
+
+/* RIGHT */
+
+.location-flower-right {
+  right: -75px;
+
+  bottom: -15px;
+
+  transform: scaleX(-1) rotate(8deg);
+}
+
+
+/* =========================================
+   BOTTOM FADE
+========================================= */
+
+.location-fade-bottom {
+  position: absolute;
+
+  left: 0;
+
+  bottom: 0;
+
+  width: 100%;
+
+  height: 70px;
+
+  background: linear-gradient(
+    to top,
+    #f7ecdf,
+    rgba(247, 236, 223, 0)
+  );
+
+  pointer-events: none;
+
+  z-index: 4;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .location-section {
+    min-height: 680px;
+
+    padding: 35px 8px 70px;
+  }
+
+
+  .location-eyebrow {
+    font-size: 7px;
+
+    letter-spacing: 2.5px;
+  }
+
+
+  .location-title {
+    font-size: 45px;
+  }
+
+
+  .location-divider {
+    width: 155px;
+
+    margin-top: 9px;
+
+    margin-bottom: 15px;
+  }
+
+
+  /* -----------------------------------------
+     BIG FRAME
+  ----------------------------------------- */
+
+  .location-map-frame {
+    width: 100%;
+
+    max-width: 580px;
+
+    height: 400px;
+
+    margin-top: 15px;
+
+    overflow: hidden;
+  }
+
+
+  /* -----------------------------------------
+     MAP INSIDE FRAME
+  ----------------------------------------- */
+
+  .location-map {
+    top: 53px;
+
+    left: 15px;
+
+    right: 15px;
+
+    bottom: 53px;
+
+    border-radius: 19px;
+  }
+
+
+  /* -----------------------------------------
+     VENUE
+  ----------------------------------------- */
+
+  .location-info {
+    margin-top: 22px;
+  }
+
+
+  .location-info h3 {
+    font-size: 27px;
+  }
+
+
+  .location-info p {
+    font-size: 14px;
+
+    margin-bottom: 15px;
+  }
+
+
+  .location-button {
+    padding: 8px 16px;
+
+    font-size: 7px;
+  }
+
+
+  /* -----------------------------------------
+     FLOWERS
+  ----------------------------------------- */
+
+  .location-flower {
+    width: 125px;
+  }
+
+
+  .location-flower-left {
+    left: -65px;
+  }
+
+
+  .location-flower-right {
+    right: -65px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  .location-section {
+    min-height: 650px;
+
+    padding-top: 30px;
+  }
+
+
+  .location-title {
+    font-size: 42px;
+  }
+
+
+  .location-map-frame {
+    height: 370px;
+
+    margin-top: 14px;
+  }
+
+
+  .location-map {
+    top: 49px;
+
+    left: 13px;
+
+    right: 13px;
+
+    bottom: 49px;
+
+    border-radius: 18px;
+  }
+
+
+  .location-info h3 {
+    font-size: 25px;
+  }
+
+
+  .location-flower {
+    width: 110px;
+  }
+}

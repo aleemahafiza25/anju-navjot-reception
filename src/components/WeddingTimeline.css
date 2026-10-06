@@ -1,0 +1,574 @@
+/* =========================================
+   WEDDING TIMELINE
+========================================= */
+
+.timeline-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  background: #f7ecdf;
+  color: #806346;
+
+  padding: 105px 20px 125px;
+}
+
+
+/* =========================================
+   SOFT TOP FADE
+========================================= */
+
+.timeline-fade-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 125px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 236, 223, 0),
+    rgba(247, 236, 223, 0.45),
+    #f7ecdf
+  );
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* =========================================
+   SOFT BOTTOM FADE
+========================================= */
+
+.timeline-fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 140px;
+
+  background: linear-gradient(
+    to top,
+    rgba(247, 236, 223, 0),
+    rgba(247, 236, 223, 0.5),
+    #f7ecdf
+  );
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.timeline-content {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  max-width: 620px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.timeline-eyebrow {
+  margin: 0 0 7px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 8px;
+  font-weight: 400;
+
+  letter-spacing: 3px;
+
+  color: #92704b;
+}
+
+
+.timeline-title {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 47px;
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  color: #725638;
+}
+
+
+.timeline-subtitle {
+  margin: 9px 0 62px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 17px;
+
+  font-style: italic;
+
+  color: #92704b;
+}
+
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.timeline {
+  position: relative;
+
+  width: 100%;
+
+  padding: 8px 0 20px;
+}
+
+
+/* =========================================
+   CENTER GOLD LINE
+========================================= */
+
+.timeline::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 1px;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(
+    to bottom,
+    rgba(178, 138, 74, 0),
+    rgba(178, 138, 74, 0.45) 8%,
+    rgba(178, 138, 74, 0.45) 92%,
+    rgba(178, 138, 74, 0)
+  );
+}
+
+
+/* =========================================
+   EVENT
+========================================= */
+
+.timeline-item {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 1fr 42px 1fr;
+
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 135px;
+
+  margin-bottom: 20px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.timeline-image {
+  width: 155px;
+  height: 120px;
+
+  overflow: hidden;
+
+  background: #eee0d0;
+
+  border: 1px solid rgba(178, 138, 74, 0.35);
+
+  box-shadow:
+    0 10px 25px rgba(80, 54, 30, 0.08);
+
+  position: relative;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   SUBTLE INNER FRAME
+========================================= */
+
+.timeline-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 5px;
+
+  border: 1px solid rgba(255, 250, 243, 0.55);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   IMAGE ITSELF
+========================================= */
+
+.timeline-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   LEFT IMAGE
+========================================= */
+
+.timeline-left .timeline-image {
+  grid-column: 1;
+
+  justify-self: end;
+
+  margin-right: 18px;
+}
+
+
+/* =========================================
+   RIGHT IMAGE
+========================================= */
+
+.timeline-right .timeline-image {
+  grid-column: 3;
+
+  justify-self: start;
+
+  margin-left: 18px;
+}
+
+
+/* =========================================
+   CENTER MARKER AREA
+========================================= */
+
+.timeline-line {
+  grid-column: 2;
+  grid-row: 1;
+
+  position: relative;
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================
+   SMALL STATIC EVENT MARKER
+========================================= */
+
+.timeline-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #b28a4a;
+
+  border: 2px solid #f7ecdf;
+
+  box-shadow:
+    0 0 0 1px rgba(178, 138, 74, 0.4);
+
+  z-index: 2;
+}
+
+
+/* =========================================
+   EVENT INFORMATION
+========================================= */
+
+.timeline-info {
+  padding: 0 12px;
+
+  text-align: left;
+}
+
+
+.timeline-left .timeline-info {
+  grid-column: 3;
+}
+
+
+.timeline-right .timeline-info {
+  grid-column: 1;
+  grid-row: 1;
+
+  text-align: right;
+}
+
+
+/* =========================================
+   TIME
+========================================= */
+
+.timeline-time {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 8px;
+  font-weight: 400;
+
+  letter-spacing: 2.2px;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   EVENT TITLE
+========================================= */
+
+.timeline-info h3 {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 27px;
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  color: #725638;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.timeline-info p {
+  margin: 7px 0 0;
+
+  max-width: 185px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 13px;
+
+  line-height: 1.3;
+
+  color: #92704b;
+}
+
+
+.timeline-right .timeline-info p {
+  margin-left: auto;
+}
+
+
+/* =========================================
+   MOVING FLOWER
+========================================= */
+
+.timeline-flower {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  z-index: 20;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  will-change: transform;
+
+  transition: transform 0.05s linear;
+}
+
+
+.timeline-flower img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .timeline-section {
+    padding: 90px 14px 105px;
+  }
+
+
+  .timeline-title {
+    font-size: 40px;
+  }
+
+
+  .timeline-subtitle {
+    margin-bottom: 48px;
+  }
+
+
+  .timeline {
+    padding-top: 5px;
+  }
+
+
+  .timeline-item {
+    grid-template-columns: 1fr 28px 1fr;
+
+    min-height: 115px;
+
+    margin-bottom: 16px;
+  }
+
+
+  /* BIGGER MOBILE IMAGES */
+
+  .timeline-image {
+    width: 125px;
+    height: 100px;
+  }
+
+
+  .timeline-left .timeline-image {
+    margin-right: 5px;
+  }
+
+
+  .timeline-right .timeline-image {
+    margin-left: 5px;
+  }
+
+
+  .timeline-info {
+    padding: 0 6px;
+  }
+
+
+  .timeline-info h3 {
+    font-size: 21px;
+  }
+
+
+  .timeline-info p {
+    max-width: 135px;
+
+    font-size: 12px;
+  }
+
+
+  .timeline-time {
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  .timeline-flower {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  .timeline-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+
+  .timeline-item {
+    grid-template-columns: 1fr 24px 1fr;
+
+    min-height: 110px;
+
+    margin-bottom: 14px;
+  }
+
+
+  .timeline-image {
+    width: 112px;
+    height: 90px;
+  }
+
+
+  .timeline-left .timeline-image {
+    margin-right: 3px;
+  }
+
+
+  .timeline-right .timeline-image {
+    margin-left: 3px;
+  }
+
+
+  .timeline-info {
+    padding: 0 4px;
+  }
+
+
+  .timeline-info h3 {
+    font-size: 19px;
+  }
+
+
+  .timeline-info p {
+    font-size: 11px;
+  }
+}

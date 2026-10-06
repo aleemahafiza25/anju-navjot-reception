@@ -1,0 +1,506 @@
+/* =========================================
+   NIKKAH SECTION
+========================================= */
+
+.nikkah-section {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  background: #f7ecdf;
+
+  overflow: hidden;
+
+  color: #94734e;
+}
+
+
+/* =========================================
+   MAIN ARTWORK
+========================================= */
+
+.nikkah-inner {
+  position: relative;
+
+  width: 100%;
+  max-width: 620px;
+
+  margin: 0 auto;
+
+  /*
+    Slightly taller than before so the
+    invitation has enough breathing room.
+  */
+  min-height: 900px;
+
+  background-image: url("/weddings/invitation/nikkah-bg.png");
+
+  background-repeat: no-repeat;
+
+  /*
+    Slightly enlarge the artwork to remove
+    the unwanted blank strip at the top.
+  */
+  background-position: center center;
+
+  background-size: 102% 102%;
+}
+
+
+/* =========================================
+   CONTENT FRAME
+========================================= */
+
+.nikkah-arch {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  /*
+    These values control where the text
+    sits inside the artwork.
+  */
+  padding:
+    8% 15% 14%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  background: transparent;
+
+  border: none;
+  box-shadow: none;
+}
+
+
+/* =========================================
+   REMOVE ARTIFICIAL ARCH
+========================================= */
+
+.nikkah-arch::before,
+.nikkah-arch::after {
+  display: none;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.nikkah-arch-inner {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   BISMILLAH
+========================================= */
+
+.nikkah-bismillah {
+  margin: 0 0 14px;
+
+  font-family: serif;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   INVITATION INTRO
+========================================= */
+
+.nikkah-intro {
+  margin: 0 0 14px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 400;
+
+  line-height: 1.7;
+
+  letter-spacing: 1.6px;
+
+  color: #8b6a47;
+}
+
+
+/* =========================================
+   NAMES
+========================================= */
+
+.nikkah-name {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 62px;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 0.9;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.nikkah-divider {
+  width: 105px;
+
+  margin: 15px 0 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.nikkah-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(178, 138, 74, 0.55);
+}
+
+.nikkah-divider b {
+  font-size: 9px;
+
+  font-weight: 400;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   RELATION
+========================================= */
+
+.nikkah-relation {
+  margin: 0;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+
+  color: #92704b;
+}
+
+
+/* =========================================
+   PARENTS
+========================================= */
+
+.nikkah-parents {
+  margin: 4px 0 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 14px;
+
+  letter-spacing: 0.4px;
+
+  color: #806346;
+}
+
+
+/* =========================================
+   WITH
+========================================= */
+
+.nikkah-with {
+  margin: 17px 0 5px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 23px;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  color: #92704b;
+}
+
+
+/* =========================================
+   BRIDE
+========================================= */
+
+.nikkah-bride {
+  margin-bottom: 9px;
+}
+
+
+/* =========================================
+   MESSAGE TITLE
+========================================= */
+
+.nikkah-message-title {
+  margin: 25px 0 8px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 27px;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  color: #92704b;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.nikkah-message {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 16px;
+
+  line-height: 1.2;
+
+  color: #806346;
+}
+
+
+/* =========================================
+   HIDE OLD FLOWER ELEMENTS
+========================================= */
+
+.nikkah-flower {
+  display: none;
+}
+
+
+/* =========================================
+   BOTTOM DIVIDER
+========================================= */
+
+.nikkah-bottom-divider {
+  position: absolute;
+
+  left: 50%;
+  bottom: 3%;
+
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  width: 125px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.nikkah-bottom-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(178, 138, 74, 0.45);
+}
+
+.nikkah-bottom-divider b {
+  font-size: 10px;
+
+  font-weight: 400;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .nikkah-inner {
+    min-height: 900px;
+
+    background-size: 102% 102%;
+    background-position: center center;
+  }
+
+  .nikkah-arch {
+    padding:
+      8% 13% 13%;
+  }
+
+  .nikkah-bismillah {
+    font-size: 22px;
+
+    margin-bottom: 12px;
+  }
+
+  .nikkah-intro {
+    font-size: 8px;
+
+    margin-bottom: 12px;
+  }
+
+  .nikkah-name {
+    font-size: 55px;
+  }
+
+  .nikkah-divider {
+    margin-top: 13px;
+    margin-bottom: 11px;
+  }
+
+  .nikkah-parents {
+    font-size: 13px;
+  }
+
+  .nikkah-with {
+    font-size: 21px;
+
+    margin-top: 15px;
+  }
+
+  .nikkah-message-title {
+    font-size: 24px;
+
+    margin-top: 22px;
+  }
+
+  .nikkah-message {
+    font-size: 15px;
+  }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  .nikkah-inner {
+    min-height: 850px;
+  }
+
+  .nikkah-arch {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+
+  .nikkah-bismillah {
+    font-size: 20px;
+  }
+
+  .nikkah-name {
+    font-size: 48px;
+  }
+
+  .nikkah-message-title {
+    font-size: 22px;
+  }
+
+  .nikkah-message {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================
+   SOFT FADE AROUND NIKKAH BACKGROUND
+========================================= */
+
+.nikkah-inner::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 3;
+  pointer-events: none;
+
+  background:
+    /* LEFT EDGE */
+    linear-gradient(
+      to right,
+      #f7ecdf 0%,
+      rgba(247, 236, 223, 0.9) 2%,
+      rgba(247, 236, 223, 0.55) 6%,
+      rgba(247, 236, 223, 0.2) 12%,
+      transparent 20%
+    ),
+
+    /* RIGHT EDGE */
+    linear-gradient(
+      to left,
+      #f7ecdf 0%,
+      rgba(247, 236, 223, 0.9) 2%,
+      rgba(247, 236, 223, 0.55) 6%,
+      rgba(247, 236, 223, 0.2) 12%,
+      transparent 20%
+    ),
+
+    /* TOP EDGE */
+    linear-gradient(
+      to bottom,
+      #f7ecdf 0%,
+      rgba(247, 236, 223, 0.8) 3%,
+      rgba(247, 236, 223, 0.35) 8%,
+      transparent 16%
+    ),
+
+/* BOTTOM EDGE */
+linear-gradient(
+  to top,
+  #f7ecdf 0%,
+  rgba(247, 236, 223, 0.95) 4%,
+  rgba(247, 236, 223, 0.75) 9%,
+  rgba(247, 236, 223, 0.45) 15%,
+  rgba(247, 236, 223, 0.18) 21%,
+  transparent 30%
+)
+}

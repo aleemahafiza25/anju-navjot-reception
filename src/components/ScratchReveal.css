@@ -1,0 +1,1310 @@
+/* =========================================
+   SCRATCH REVEAL
+========================================= */
+
+/* ================================
+   SCRATCH / DATE SECTION
+   SOFT CONTINUATION FROM HERO
+================================ */
+
+/* ================================
+   SCRATCH / DATE SECTION
+   SOFT CONTINUATION FROM HERO
+================================ */
+
+.scratch-page {
+  position: relative;
+
+  width: 100%;
+  min-height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  /*
+    IMPORTANT:
+    No negative margin.
+    The section naturally follows the hero,
+    while its top remains transparent.
+  */
+  margin-top: 0;
+
+  padding: 90px 20px 70px;
+
+  z-index: 4;
+
+  /*
+    The top is transparent so the hero/video
+    underneath remains visible.
+
+    Then it slowly becomes the cream color.
+  */
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 236, 223, 0) 0px,
+    rgba(247, 236, 223, 0.03) 20px,
+    rgba(247, 236, 223, 0.12) 45px,
+    rgba(247, 236, 223, 0.35) 70px,
+    rgba(247, 236, 223, 0.72) 95px,
+    #f7ecdf 125px
+  );
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.scratch-content {
+  width: 100%;
+  max-width: 430px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================
+   DECORATIVE ORNAMENT
+========================================= */
+
+.scratch-ornament,
+.scratch-bottom-ornament {
+  position: absolute;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 38px;
+
+  color: #94734e;
+
+  opacity: 0.45;
+}
+
+.scratch-ornament {
+  top: 28px;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.scratch-bottom-ornament {
+  bottom: 28px;
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    rotate(180deg);
+}
+
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.scratch-eyebrow {
+  margin: 0 0 8px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 400;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: #92704b;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.scratch-content h2 {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 42px;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  color: #725638;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.scratch-description {
+  margin: 10px 0 27px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 16px;
+
+  font-style: italic;
+
+  color: #92704b;
+}
+
+
+/* =========================================
+   THREE CARDS
+========================================= */
+
+.date-cards {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  gap: 10px;
+}
+
+
+/* =========================================
+   CARD + LABEL
+========================================= */
+
+.date-card-wrapper {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  width: 30%;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.date-card {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 0.82 / 1;
+
+  overflow: hidden;
+
+  background: #f8eee1;
+
+  border: 1px solid rgba(114, 86, 56, 0.28);
+
+  box-shadow:
+    0 8px 22px rgba(80, 54, 30, 0.10);
+
+  touch-action: none;
+}
+
+
+/* =========================================
+   DATE UNDER SCRATCH
+========================================= */
+
+.date-card-hidden {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #fffaf3,
+      #f2e3d1
+    );
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   DAY
+========================================= */
+
+.date-number {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 62px;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1;
+}
+
+
+/* =========================================
+   MONTH
+========================================= */
+
+.date-word {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 24px;
+
+  font-weight: 500;
+
+  font-style: italic;
+
+  letter-spacing: 1px;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   YEAR
+========================================= */
+
+.date-number.year {
+  font-size: 30px;
+
+  font-style: normal;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================
+   SCRATCH CANVAS
+========================================= */
+
+.date-scratch-canvas {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  cursor: grab;
+
+  touch-action: none;
+}
+
+.date-scratch-canvas:active {
+  cursor: grabbing;
+}
+
+
+/* =========================================
+   REVEAL
+========================================= */
+
+.date-card.revealed .date-scratch-canvas {
+  opacity: 0;
+
+  transition:
+    opacity 0.8s ease;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.date-card-label {
+  margin-top: 10px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 400;
+
+  letter-spacing: 2.5px;
+
+  color: #806346;
+}
+
+
+/* =========================================
+   MOBILE HEIGHT CONTROL
+========================================= */
+
+@media (max-height: 700px) {
+
+  .scratch-page {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .scratch-content h2 {
+    font-size: 36px;
+  }
+
+  .scratch-description {
+    margin-bottom: 20px;
+  }
+
+  .date-number {
+    font-size: 54px;
+  }
+
+  .date-word {
+    font-size: 21px;
+  }
+
+  .date-number.year {
+    font-size: 27px;
+  }
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 601px) {
+
+  .scratch-page {
+    min-height: auto;
+
+    padding: 80px 30px 90px;
+  }
+
+  .scratch-content {
+    max-width: 620px;
+  }
+
+  .scratch-content h2 {
+    font-size: 50px;
+  }
+
+  .date-cards {
+    gap: 18px;
+  }
+
+  .date-card-wrapper {
+    width: 150px;
+  }
+
+  .date-number {
+    font-size: 70px;
+  }
+
+  .date-word {
+    font-size: 27px;
+  }
+
+  .date-number.year {
+    font-size: 34px;
+  }
+}
+
+/* =================================
+   DATE REVEAL CONFETTI
+================================= */
+
+/* =================================
+   ELEGANT CONFETTI POP
+================================= */
+
+.date-reveal-effect {
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 50;
+}
+
+
+/* =================================
+   CONFETTI PIECES
+================================= */
+
+.date-sparkle {
+  position: absolute;
+
+  left: 50%;
+  top: 58%;
+
+  width: var(--w);
+  height: var(--h);
+
+  background: var(--gold);
+
+  border-radius: var(--radius);
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(0deg);
+
+  animation:
+    elegantConfetti
+    2.8s
+    cubic-bezier(0.18, 0.72, 0.25, 1)
+    var(--delay)
+    forwards;
+}
+
+
+/* =================================
+   CONFETTI VARIATIONS
+================================= */
+
+.date-sparkle:nth-child(1) {
+  --w: 5px;
+  --h: 10px;
+  --gold: #c49a55;
+  --radius: 1px;
+  --x: -125px;
+  --y: -105px;
+  --delay: 0s;
+  --rotate: 140deg;
+}
+
+.date-sparkle:nth-child(2) {
+  --w: 4px;
+  --h: 7px;
+  --gold: #ddc18c;
+  --radius: 50%;
+  --x: -92px;
+  --y: -135px;
+  --delay: 0.03s;
+  --rotate: -80deg;
+}
+
+.date-sparkle:nth-child(3) {
+  --w: 5px;
+  --h: 11px;
+  --gold: #b98b48;
+  --radius: 1px;
+  --x: -58px;
+  --y: -150px;
+  --delay: 0.06s;
+  --rotate: 100deg;
+}
+
+.date-sparkle:nth-child(4) {
+  --w: 4px;
+  --h: 6px;
+  --gold: #e1c99b;
+  --radius: 50%;
+  --x: -25px;
+  --y: -165px;
+  --delay: 0.09s;
+  --rotate: -40deg;
+}
+
+.date-sparkle:nth-child(5) {
+  --w: 5px;
+  --h: 10px;
+  --gold: #cda961;
+  --radius: 1px;
+  --x: 20px;
+  --y: -155px;
+  --delay: 0.12s;
+  --rotate: 120deg;
+}
+
+.date-sparkle:nth-child(6) {
+  --w: 4px;
+  --h: 7px;
+  --gold: #e5d0a5;
+  --radius: 50%;
+  --x: 55px;
+  --y: -140px;
+  --delay: 0.15s;
+  --rotate: -70deg;
+}
+
+.date-sparkle:nth-child(7) {
+  --w: 5px;
+  --h: 11px;
+  --gold: #bc904c;
+  --radius: 1px;
+  --x: 88px;
+  --y: -120px;
+  --delay: 0.18s;
+  --rotate: 80deg;
+}
+
+.date-sparkle:nth-child(8) {
+  --w: 4px;
+  --h: 6px;
+  --gold: #d8ba7f;
+  --radius: 50%;
+  --x: 120px;
+  --y: -92px;
+  --delay: 0.21s;
+  --rotate: -100deg;
+}
+
+.date-sparkle:nth-child(9) {
+  --w: 5px;
+  --h: 10px;
+  --gold: #c69d5a;
+  --radius: 1px;
+  --x: -145px;
+  --y: -65px;
+  --delay: 0.24s;
+  --rotate: 160deg;
+}
+
+.date-sparkle:nth-child(10) {
+  --w: 4px;
+  --h: 7px;
+  --gold: #e0c593;
+  --radius: 50%;
+  --x: 145px;
+  --y: -60px;
+  --delay: 0.27s;
+  --rotate: -120deg;
+}
+
+.date-sparkle:nth-child(11) {
+  --w: 5px;
+  --h: 9px;
+  --gold: #b88a48;
+  --radius: 1px;
+  --x: -110px;
+  --y: -35px;
+  --delay: 0.3s;
+  --rotate: 90deg;
+}
+
+.date-sparkle:nth-child(12) {
+  --w: 4px;
+  --h: 6px;
+  --gold: #d8bd87;
+  --radius: 50%;
+  --x: 112px;
+  --y: -30px;
+  --delay: 0.33s;
+  --rotate: -90deg;
+}
+
+.date-sparkle:nth-child(13) {
+  --w: 5px;
+  --h: 10px;
+  --gold: #c49a55;
+  --radius: 1px;
+  --x: -155px;
+  --y: -5px;
+  --delay: 0.36s;
+  --rotate: 130deg;
+}
+
+.date-sparkle:nth-child(14) {
+  --w: 4px;
+  --h: 7px;
+  --gold: #e0c38f;
+  --radius: 50%;
+  --x: 155px;
+  --y: 0;
+  --delay: 0.39s;
+  --rotate: -70deg;
+}
+
+.date-sparkle:nth-child(15) {
+  --w: 5px;
+  --h: 10px;
+  --gold: #b98d4d;
+  --radius: 1px;
+  --x: -125px;
+  --y: 30px;
+  --delay: 0.42s;
+  --rotate: 110deg;
+}
+
+.date-sparkle:nth-child(16) {
+  --w: 4px;
+  --h: 6px;
+  --gold: #d9bb80;
+  --radius: 50%;
+  --x: 125px;
+  --y: 35px;
+  --delay: 0.45s;
+  --rotate: -110deg;
+}
+
+.date-sparkle:nth-child(17) {
+  --w: 5px;
+  --h: 9px;
+  --gold: #c69c59;
+  --radius: 1px;
+  --x: -95px;
+  --y: 65px;
+  --delay: 0.48s;
+  --rotate: 150deg;
+}
+
+.date-sparkle:nth-child(18) {
+  --w: 4px;
+  --h: 7px;
+  --gold: #e2c99b;
+  --radius: 50%;
+  --x: 92px;
+  --y: 70px;
+  --delay: 0.51s;
+  --rotate: -80deg;
+}
+
+.date-sparkle:nth-child(19) {
+  --w: 5px;
+  --h: 10px;
+  --gold: #bb8d4b;
+  --radius: 1px;
+  --x: -65px;
+  --y: 90px;
+  --delay: 0.54s;
+  --rotate: 100deg;
+}
+
+.date-sparkle:nth-child(20) {
+  --w: 4px;
+  --h: 6px;
+  --gold: #d8b97d;
+  --radius: 50%;
+  --x: 65px;
+  --y: 95px;
+  --delay: 0.57s;
+  --rotate: -100deg;
+}
+
+.date-sparkle:nth-child(21) {
+  --w: 5px;
+  --h: 9px;
+  --gold: #c69b58;
+  --radius: 1px;
+  --x: -38px;
+  --y: 115px;
+  --delay: 0.60s;
+  --rotate: 120deg;
+}
+
+.date-sparkle:nth-child(22) {
+  --w: 4px;
+  --h: 7px;
+  --gold: #e1c694;
+  --radius: 50%;
+  --x: 35px;
+  --y: 118px;
+  --delay: 0.63s;
+  --rotate: -80deg;
+}
+
+.date-sparkle:nth-child(23) {
+  --w: 5px;
+  --h: 10px;
+  --gold: #ba8d4b;
+  --radius: 1px;
+  --x: -15px;
+  --y: 130px;
+  --delay: 0.66s;
+  --rotate: 140deg;
+}
+
+.date-sparkle:nth-child(24) {
+  --w: 4px;
+  --h: 6px;
+  --gold: #d9bd83;
+  --radius: 50%;
+  --x: 18px;
+  --y: 135px;
+  --delay: 0.69s;
+  --rotate: -100deg;
+}
+
+
+/* =================================
+   POP + FALL
+================================= */
+
+@keyframes elegantConfetti {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.3)
+      rotate(0deg);
+  }
+
+  12% {
+    opacity: 1;
+
+    transform:
+      translate(
+        calc(-50% + var(--x) * 0.35),
+        calc(-50% + var(--y) * 0.35)
+      )
+      scale(1)
+      rotate(var(--rotate));
+  }
+
+  42% {
+    opacity: 0.95;
+
+    transform:
+      translate(
+        calc(-50% + var(--x)),
+        calc(-50% + var(--y))
+      )
+      rotate(calc(var(--rotate) + 100deg));
+  }
+
+  72% {
+    opacity: 0.75;
+
+    transform:
+      translate(
+        calc(-50% + var(--x) * 1.05),
+        calc(-50% + var(--y) + 55px)
+      )
+      rotate(calc(var(--rotate) + 220deg));
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(-50% + var(--x) * 1.1),
+        calc(-50% + var(--y) + 125px)
+      )
+      rotate(calc(var(--rotate) + 360deg));
+  }
+}
+
+
+/* Individual confetti pieces */
+
+.date-sparkle {
+  position: absolute;
+
+  top: -20px;
+
+  left: calc(var(--i) * 4.2%);
+
+  width: var(--size);
+  height: var(--height);
+
+  background: var(--confetti-color);
+
+  border-radius: var(--radius);
+
+  opacity: 0;
+
+  transform: rotate(var(--rotation));
+
+  animation:
+    confettiFall
+    var(--duration)
+    cubic-bezier(0.22, 0.61, 0.36, 1)
+    var(--delay)
+    forwards;
+}
+
+
+/* Different positions and shapes */
+
+.date-sparkle:nth-child(1) {
+  --size: 5px;
+  --height: 5px;
+  --radius: 50%;
+  --confetti-color: #c99f58;
+  --rotation: 0deg;
+  --duration: 4.8s;
+  --delay: 0s;
+}
+
+.date-sparkle:nth-child(2) {
+  --size: 4px;
+  --height: 11px;
+  --radius: 1px;
+  --confetti-color: #dfc28e;
+  --rotation: 35deg;
+  --duration: 5.2s;
+  --delay: 0.12s;
+}
+
+.date-sparkle:nth-child(3) {
+  --size: 6px;
+  --height: 6px;
+  --radius: 50%;
+  --confetti-color: #b9904c;
+  --rotation: 0deg;
+  --duration: 4.5s;
+  --delay: 0.2s;
+}
+
+.date-sparkle:nth-child(4) {
+  --size: 4px;
+  --height: 13px;
+  --radius: 1px;
+  --confetti-color: #ead7b3;
+  --rotation: -25deg;
+  --duration: 5.5s;
+  --delay: 0.35s;
+}
+
+.date-sparkle:nth-child(5) {
+  --size: 5px;
+  --height: 5px;
+  --radius: 50%;
+  --confetti-color: #d1aa68;
+  --rotation: 0deg;
+  --duration: 4.7s;
+  --delay: 0.45s;
+}
+
+.date-sparkle:nth-child(6) {
+  --size: 3px;
+  --height: 10px;
+  --radius: 1px;
+  --confetti-color: #c19a5b;
+  --rotation: 55deg;
+  --duration: 5.1s;
+  --delay: 0.55s;
+}
+
+.date-sparkle:nth-child(7) {
+  --size: 6px;
+  --height: 6px;
+  --radius: 50%;
+  --confetti-color: #e4cc9e;
+  --rotation: 0deg;
+  --duration: 4.9s;
+  --delay: 0.65s;
+}
+
+.date-sparkle:nth-child(8) {
+  --size: 4px;
+  --height: 12px;
+  --radius: 1px;
+  --confetti-color: #c69b58;
+  --rotation: -40deg;
+  --duration: 5.4s;
+  --delay: 0.75s;
+}
+
+.date-sparkle:nth-child(9) {
+  --size: 5px;
+  --height: 5px;
+  --radius: 50%;
+  --confetti-color: #d8bb85;
+  --rotation: 0deg;
+  --duration: 4.6s;
+  --delay: 0.85s;
+}
+
+.date-sparkle:nth-child(10) {
+  --size: 3px;
+  --height: 11px;
+  --radius: 1px;
+  --confetti-color: #b98b45;
+  --rotation: 25deg;
+  --duration: 5.3s;
+  --delay: 0.95s;
+}
+
+.date-sparkle:nth-child(11) {
+  --size: 6px;
+  --height: 6px;
+  --radius: 50%;
+  --confetti-color: #e6d0a6;
+  --rotation: 0deg;
+  --duration: 4.8s;
+  --delay: 1.05s;
+}
+
+.date-sparkle:nth-child(12) {
+  --size: 4px;
+  --height: 13px;
+  --radius: 1px;
+  --confetti-color: #c79e5d;
+  --rotation: -30deg;
+  --duration: 5.6s;
+  --delay: 1.15s;
+}
+
+
+/* =================================
+   CONFETTI FALL
+================================= */
+
+@keyframes confettiFall {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(0, -20px, 0)
+      rotate(var(--rotation));
+  }
+
+  8% {
+    opacity: 0.9;
+  }
+
+  35% {
+    transform:
+      translate3d(
+        18px,
+        30vh,
+        0
+      )
+      rotate(calc(var(--rotation) + 90deg));
+  }
+
+  65% {
+    opacity: 0.75;
+
+    transform:
+      translate3d(
+        -15px,
+        65vh,
+        0
+      )
+      rotate(calc(var(--rotation) + 210deg));
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(
+        12px,
+        105vh,
+        0
+      )
+      rotate(calc(var(--rotation) + 360deg));
+  }
+}
+
+.date-sparkle:nth-child(n + 13) {
+  --size: 4px;
+  --height: 9px;
+  --radius: 1px;
+  --confetti-color: #d6b879;
+  --rotation: 25deg;
+  --duration: 5s;
+  --delay: 0.2s;
+}
+
+/* =================================
+   GOLDEN CONFETTI CELEBRATION
+================================= */
+
+.date-popper {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 50;
+}
+
+
+/* =================================
+   INDIVIDUAL CONFETTI PIECES
+================================= */
+
+.date-popper span {
+  position: absolute;
+
+  top: -20px;
+  left: var(--left);
+
+  width: var(--size);
+  height: calc(var(--size) * 1.8);
+
+  border-radius: 2px;
+
+  background: #b28a4a;
+
+  opacity: 0;
+
+  transform:
+    translate3d(0, -30px, 0)
+    rotate(0deg);
+
+  animation:
+    elegantConfetti
+    var(--duration)
+    cubic-bezier(0.22, 0.61, 0.36, 1)
+    var(--delay)
+    forwards;
+}
+
+
+/* =================================
+   ALTERNATING SHAPES
+================================= */
+
+.date-popper span:nth-child(3n) {
+  border-radius: 50%;
+}
+
+.date-popper span:nth-child(3n + 1) {
+  border-radius: 1px;
+  transform-origin: center;
+}
+
+.date-popper span:nth-child(4n) {
+  width: calc(var(--size) * 1.5);
+  height: var(--size);
+}
+
+
+/* =================================
+   RANDOM GOLD SHADES
+================================= */
+
+.date-popper span:nth-child(3n) {
+  background: #c49a55;
+}
+
+.date-popper span:nth-child(3n + 1) {
+  background: #b28a4a;
+}
+
+.date-popper span:nth-child(3n + 2) {
+  background: #d1ad6c;
+}
+
+
+/* =================================
+   NATURAL FALL
+================================= */
+
+@keyframes elegantConfetti {
+
+  0% {
+    opacity: 0;
+    transform:
+      translate3d(0, -30px, 0)
+      rotate(0deg);
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 1;
+    transform:
+      translate3d(
+        calc(var(--drift) * 0.15),
+        18vh,
+        0
+      )
+      rotate(calc(var(--rotate) * 0.15));
+  }
+
+  50% {
+    opacity: 0.95;
+    transform:
+      translate3d(
+        calc(var(--drift) * -0.25),
+        42vh,
+        0
+      )
+      rotate(calc(var(--rotate) * 0.4));
+  }
+
+  75% {
+    opacity: 0.75;
+    transform:
+      translate3d(
+        calc(var(--drift) * 0.45),
+        70vh,
+        0
+      )
+      rotate(calc(var(--rotate) * 0.65));
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate3d(
+        var(--drift),
+        105vh,
+        0
+      )
+      rotate(var(--rotate));
+  }
+}
+
+/* =========================================
+   CONFETTI PIECES
+========================================= */
+
+.date-popper span {
+  position: absolute;
+
+  top: -20px;
+  left: var(--left);
+
+  width: var(--size);
+  height: calc(var(--size) * 1.6);
+
+  background: #b28a4a;
+
+  border-radius: 2px;
+
+  opacity: 0;
+
+  animation:
+    elegantConfetti
+    var(--duration)
+    linear
+    var(--delay)
+    forwards;
+
+  will-change: transform, opacity;
+}
+
+
+/* =========================================
+   CONFETTI VARIETY
+========================================= */
+
+.date-popper span:nth-child(3n) {
+  border-radius: 50%;
+  background: #c49a55;
+}
+
+.date-popper span:nth-child(3n + 1) {
+  background: #b28a4a;
+}
+
+.date-popper span:nth-child(3n + 2) {
+  background: #d1ad6c;
+}
+
+.date-popper span:nth-child(4n) {
+  width: calc(var(--size) * 1.5);
+  height: var(--size);
+}
+
+
+/* =========================================
+   SMOOTH CONSTANT FALL
+========================================= */
+
+@keyframes elegantConfetti {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(0, -25px, 0)
+      rotate(0deg);
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  20% {
+    transform:
+      translate3d(
+        calc(var(--drift) * -0.15),
+        15vh,
+        0
+      )
+      rotate(
+        calc(var(--rotate) * 0.2)
+      );
+  }
+
+  40% {
+    transform:
+      translate3d(
+        calc(var(--drift) * 0.25),
+        30vh,
+        0
+      )
+      rotate(
+        calc(var(--rotate) * 0.4)
+      );
+  }
+
+  60% {
+    transform:
+      translate3d(
+        calc(var(--drift) * -0.35),
+        45vh,
+        0
+      )
+      rotate(
+        calc(var(--rotate) * 0.6)
+      );
+  }
+
+  80% {
+    transform:
+      translate3d(
+        calc(var(--drift) * 0.55),
+        60vh,
+        0
+      )
+      rotate(
+        calc(var(--rotate) * 0.8)
+      );
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(
+        var(--drift),
+        78vh,
+        0
+      )
+      rotate(var(--rotate));
+  }
+}

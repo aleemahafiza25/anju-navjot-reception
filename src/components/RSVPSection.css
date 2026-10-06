@@ -1,0 +1,556 @@
+/* =========================================
+   RSVP SECTION
+========================================= */
+
+.rsvp-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 500px;
+
+  overflow: hidden;
+
+  background: #f7ecdf;
+  color: #806346;
+
+  padding: 70px 20px 25px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   TOP FLOWER
+========================================= */
+
+.rsvp-top-flower {
+  position: absolute;
+
+  top: -95px;
+  left: 50%;
+
+  width: 180px;
+  height: auto;
+
+  transform: translateX(-50%);
+
+  opacity: 0.75;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.rsvp-content {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+  max-width: 500px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.rsvp-title {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(35px, 8vw, 48px);
+
+  font-weight: 400;
+  font-style: italic;
+
+  line-height: 1.05;
+
+  color: #a87839;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.rsvp-divider {
+  width: 170px;
+
+  margin: 12px auto 18px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.rsvp-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(178, 138, 74, 0.5);
+}
+
+.rsvp-divider b {
+  font-size: 9px;
+
+  font-weight: 400;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
+.rsvp-text {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 18px;
+
+  line-height: 1.15;
+
+  color: #806346;
+}
+
+
+/* =========================================
+   RSVP BUTTON
+========================================= */
+
+.rsvp-button {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 140px;
+  height: 40px;
+
+  margin: 20px auto 0;
+
+  border-radius: 25px;
+
+  background: linear-gradient(
+    90deg,
+    #bd8d4c,
+    #e8b45e
+  );
+
+  color: #fffaf2;
+
+  text-decoration: none;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.rsvp-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 14px rgba(160, 115, 55, 0.2);
+}
+
+/* =========================================
+   RSVP FORM
+========================================= */
+
+.rsvp-form {
+  width: 100%;
+  max-width: 360px;
+
+  margin: 22px auto 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(178, 138, 74, 0.45);
+
+  border-radius: 3px;
+
+  background: rgba(255, 250, 243, 0.65);
+
+  padding: 10px 12px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 16px;
+
+  color: #806346;
+
+  outline: none;
+}
+
+.rsvp-form input::placeholder,
+.rsvp-form textarea::placeholder {
+  color: #92704b;
+
+  opacity: 0.75;
+}
+
+.rsvp-form input:focus,
+.rsvp-form select:focus,
+.rsvp-form textarea:focus {
+  border-color: #b28a4a;
+
+  background: rgba(255, 250, 243, 0.9);
+}
+
+.rsvp-form textarea {
+  resize: none;
+}
+
+.rsvp-submit {
+  width: 170px;
+
+  height: 40px;
+
+  margin: 4px auto 0;
+
+  border: none;
+
+  border-radius: 22px;
+
+  background: linear-gradient(
+    90deg,
+    #bd8d4c,
+    #e8b45e
+  );
+
+  color: #fffaf2;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   SUCCESS MESSAGE
+========================================= */
+
+.rsvp-success {
+  margin: 25px auto 0;
+
+  max-width: 350px;
+
+  text-align: center;
+}
+
+.rsvp-success-symbol {
+  color: #b28a4a;
+
+  font-size: 18px;
+
+  margin-bottom: 5px;
+}
+
+.rsvp-success h3 {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 30px;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  color: #b28a4a;
+}
+
+.rsvp-success p {
+  margin: 6px 0 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 16px;
+
+  line-height: 1.2;
+
+  color: #806346;
+}
+
+
+/* =========================================
+   CLOSING MESSAGE
+========================================= */
+
+.rsvp-closing {
+  margin: 50px 0 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(31px, 7vw, 43px);
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   CREDIT
+========================================= */
+
+.rsvp-credit {
+  position: relative;
+
+  z-index: 6;
+
+  margin-top: 48px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  color: #a87839;
+}
+
+.rsvp-credit p {
+  margin: 0;
+
+  font-size: 15px;
+
+  line-height: 1;
+}
+
+.rsvp-credit span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 17px;
+
+  font-style: italic;
+}
+
+
+/* =========================================
+   BOTTOM FLOWERS
+========================================= */
+
+.rsvp-flower {
+  position: absolute;
+
+  bottom: -18px;
+
+  width: 205px;
+
+  height: auto;
+
+  z-index: 2;
+
+  opacity: 0.9;
+
+  pointer-events: none;
+
+  user-select: none;
+}
+
+
+/* LEFT */
+
+.rsvp-flower-left {
+  left: -45px;
+
+  transform: rotate(2deg);
+}
+
+
+/* RIGHT */
+
+.rsvp-flower-right {
+  right: -45px;
+
+  transform: scaleX(-1) rotate(2deg);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .rsvp-section {
+    min-height: 495px;
+
+    padding:
+      65px
+      14px
+      20px;
+  }
+
+
+  .rsvp-top-flower {
+    top: -82px;
+
+    width: 155px;
+  }
+
+
+  .rsvp-title {
+    font-size: 36px;
+  }
+
+
+  .rsvp-divider {
+    width: 155px;
+
+    margin-top: 10px;
+    margin-bottom: 16px;
+  }
+
+
+  .rsvp-text {
+    font-size: 17px;
+  }
+
+
+  .rsvp-button {
+    width: 140px;
+
+    height: 39px;
+
+    margin-top: 18px;
+
+    font-size: 17px;
+  }
+
+
+  .rsvp-closing {
+    margin-top: 45px;
+
+    font-size: 34px;
+  }
+
+
+  .rsvp-credit {
+    margin-top: 45px;
+  }
+
+
+  .rsvp-credit p {
+    font-size: 14px;
+  }
+
+
+  .rsvp-credit span {
+    font-size: 16px;
+  }
+
+
+  .rsvp-flower {
+    width: 185px;
+
+    bottom: -15px;
+  }
+
+
+  .rsvp-flower-left {
+    left: -48px;
+  }
+
+
+  .rsvp-flower-right {
+    right: -48px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  .rsvp-section {
+    min-height: 475px;
+
+    padding-top: 60px;
+  }
+
+
+  .rsvp-title {
+    font-size: 33px;
+  }
+
+
+  .rsvp-text {
+    font-size: 16px;
+  }
+
+
+  .rsvp-button {
+    width: 135px;
+
+    height: 38px;
+  }
+
+
+  .rsvp-closing {
+    margin-top: 42px;
+
+    font-size: 31px;
+  }
+
+
+  .rsvp-credit {
+    margin-top: 42px;
+  }
+
+
+  .rsvp-flower {
+    width: 165px;
+  }
+
+
+  .rsvp-flower-left {
+    left: -48px;
+  }
+
+
+  .rsvp-flower-right {
+    right: -48px;
+  }
+}

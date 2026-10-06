@@ -1,0 +1,507 @@
+/* =========================================
+   COUNTDOWN SECTION
+========================================= */
+
+.countdown-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 300px;
+
+  overflow: hidden;
+
+  background: #f7ecdf;
+
+  color: #806346;
+
+  padding: 15px 18px 20px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   TOP DECORATION
+========================================= */
+
+.countdown-top-decoration {
+  position: relative;
+
+  z-index: 5;
+
+  width: 165px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+}
+
+
+.countdown-top-decoration span {
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(178, 138, 74, 0.5);
+}
+
+
+.countdown-top-decoration b {
+  font-size: 8px;
+
+  font-weight: 400;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.countdown-content {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+
+  max-width: 620px;
+
+  margin: 30px auto 0;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.countdown-title {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(36px, 7vw, 52px);
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   TITLE DIVIDER
+========================================= */
+
+.countdown-divider {
+  width: 200px;
+
+  margin: 9px auto 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+}
+
+
+.countdown-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(178, 138, 74, 0.55);
+}
+
+
+.countdown-divider b {
+  font-size: 12px;
+
+  font-weight: 400;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   COUNTDOWN GRID
+========================================= */
+
+.countdown-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 2px;
+
+  align-items: start;
+}
+
+
+/* =========================================
+   COUNTDOWN ITEM
+========================================= */
+
+.countdown-item {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================================
+   COUNTDOWN NUMBER
+========================================= */
+
+.countdown-number {
+  display: block;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(37px, 8vw, 56px);
+
+  font-weight: 400;
+
+  line-height: 0.88;
+
+  color: #b28a4a;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   COUNTDOWN LABEL
+========================================= */
+
+.countdown-label {
+  display: block;
+
+  margin-top: 6px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  color: #92704b;
+}
+
+
+/* =========================================
+   FLORAL BACKGROUND
+========================================= */
+
+.countdown-floral-bg {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -55px;
+
+  width: 620px;
+
+  height: auto;
+
+  transform: translateX(-50%);
+
+  opacity: 0.52;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  filter: saturate(0.85);
+}
+
+
+/* =========================================
+   LOCATION PREVIEW
+========================================= */
+
+.countdown-location-preview {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -5px;
+
+  transform: translateX(-50%);
+
+  z-index: 6;
+
+  width: 100%;
+
+  text-align: center;
+}
+
+
+.countdown-location-preview h3 {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 36px;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   LOCATION DIVIDER
+========================================= */
+
+.location-divider {
+  width: 165px;
+
+  margin: 8px auto 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+}
+
+
+.location-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(178, 138, 74, 0.45);
+}
+
+
+.location-divider b {
+  font-size: 9px;
+
+  font-weight: 400;
+
+  color: #b28a4a;
+}
+
+
+/* =========================================
+   BOTTOM FADE
+========================================= */
+
+.countdown-fade-bottom {
+  position: absolute;
+
+  left: 0;
+
+  bottom: 0;
+
+  width: 100%;
+
+  height: 45px;
+
+  z-index: 4;
+
+  background: linear-gradient(
+    to top,
+    #f7ecdf 0%,
+    rgba(247, 236, 223, 0.55) 45%,
+    rgba(247, 236, 223, 0) 100%
+  );
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .countdown-section {
+    min-height: 300px;
+
+    padding: 15px 12px 20px;
+  }
+
+
+  .countdown-top-decoration {
+    width: 150px;
+  }
+
+
+  .countdown-content {
+    margin-top: 28px;
+  }
+
+
+  .countdown-title {
+    font-size: 35px;
+  }
+
+
+  .countdown-divider {
+    width: 175px;
+
+    margin-top: 8px;
+
+    margin-bottom: 12px;
+  }
+
+
+  .countdown-number {
+    font-size: 37px;
+  }
+
+
+  .countdown-label {
+    margin-top: 6px;
+
+    font-size: 16px;
+  }
+
+
+  /* -----------------------------------------
+     FLORAL BACKGROUND
+  ----------------------------------------- */
+
+  .countdown-floral-bg {
+    width: 500px;
+
+    bottom: -45px;
+
+    opacity: 0.52;
+  }
+
+
+  /* -----------------------------------------
+     LOCATION
+  ----------------------------------------- */
+
+  .countdown-location-preview {
+    bottom: -5px;
+  }
+
+
+  .countdown-location-preview h3 {
+    font-size: 35px;
+  }
+
+
+  .location-divider {
+    width: 155px;
+
+    margin-top: 7px;
+  }
+
+
+  .countdown-fade-bottom {
+    height: 45px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  .countdown-section {
+    min-height: 290px;
+
+    padding-left: 9px;
+
+    padding-right: 9px;
+  }
+
+
+  .countdown-top-decoration {
+    width: 140px;
+  }
+
+
+  .countdown-content {
+    margin-top: 26px;
+  }
+
+
+  .countdown-title {
+    font-size: 33px;
+  }
+
+
+  .countdown-divider {
+    width: 160px;
+
+    margin-top: 7px;
+
+    margin-bottom: 11px;
+  }
+
+
+  .countdown-number {
+    font-size: 34px;
+  }
+
+
+  .countdown-label {
+    font-size: 15px;
+  }
+
+
+  /* -----------------------------------------
+     FLORAL BACKGROUND
+  ----------------------------------------- */
+
+  .countdown-floral-bg {
+    width: 450px;
+
+    bottom: -40px;
+
+    opacity: 0.50;
+  }
+
+
+  /* -----------------------------------------
+     LOCATION
+  ----------------------------------------- */
+
+  .countdown-location-preview h3 {
+    font-size: 33px;
+  }
+
+
+  .location-divider {
+    width: 145px;
+  }
+}
