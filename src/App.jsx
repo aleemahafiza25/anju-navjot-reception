@@ -1,26 +1,131 @@
+import { useEffect, useRef, useState } from "react";
+
 import ScratchReveal from "./components/ScratchReveal";
-import { useState } from "react";
 import EnvelopeOpening from "./components/EnvelopeOpening";
+
 import "./App.css";
+
 import NikkahSection from "./components/NikkahSection";
 import VerseSection from "./components/VerseSection";
 import WeddingTimeline from "./components/WeddingTimeline";
 import CountdownSection from "./components/CountdownSection";
 import LocationSection from "./components/LocationSection";
 import RSVPSection from "./components/RSVPSection";
+
 function App() {
   const [opened, setOpened] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+
+  const audioRef = useRef(null);
+
+  /*
+    Start background music after the invitation opens.
+    The browser may block autoplay, so we also provide
+    a small music button if needed.
+  */
+  const startMusic = async () => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    try {
+      audio.volume = 0.35;
+      await audio.play();
+      setMusicPlaying(true);
+    } catch (error) {
+      console.log("Music autoplay was blocked by the browser.");
+      setMusicPlaying(false);
+    }
+  };
+
+const handleOpen = () => {
+  setOpened(true);
+};
+
+  const toggleMusic = async () => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    if (audio.paused) {
+      try {
+        audio.volume = 0.35;
+        await audio.play();
+        setMusicPlaying(true);
+      } catch (error) {
+        console.log("Could not play music:", error);
+      }
+    } else {
+      audio.pause();
+      setMusicPlaying(false);
+    }
+  };
+
+  /*
+    If autoplay was blocked, listen for the user's
+    first interaction after the invitation opens.
+  */
+  useEffect(() => {
+  if (!opened) return;
+
+  startMusic();
+
+  const tryStartMusic = () => {
+    startMusic();
+  };
+
+  window.addEventListener("pointerdown", tryStartMusic, {
+    once: true,
+  });
+
+  return () => {
+    window.removeEventListener("pointerdown", tryStartMusic);
+  };
+}, [opened]);
 
   return (
     <div className="app">
+
+      {/* =========================
+          BACKGROUND MUSIC
+         ========================= */}
+
+      <audio
+        ref={audioRef}
+        src="/weddings/opening/wedding-nasheed.mp3"
+        loop
+        preload="auto"
+      />
+
+      {/* =========================
+          ENVELOPE OPENING
+         ========================= */}
+
       {!opened ? (
-        <EnvelopeOpening onOpen={() => setOpened(true)} />
+        <EnvelopeOpening onOpen={handleOpen} />
       ) : (
         <main className="invitation">
 
           {/* =========================
+              MUSIC BUTTON
+             ========================= */}
+
+          <button
+            className="music-toggle"
+            onClick={toggleMusic}
+            aria-label={
+              musicPlaying
+                ? "Pause background music"
+                : "Play background music"
+            }
+          >
+            {musicPlaying ? "♫" : "♪"}
+          </button>
+
+
+          {/* =========================
               PAGE 1
-          ========================= */}
+             ========================= */}
 
           <section className="hero-page">
 
@@ -31,15 +136,16 @@ function App() {
               loop
               muted
               playsInline
+              preload="auto"
             />
 
             <div className="hero-overlay"></div>
 
-<img
-  className="bottom-floral-overlay"
-  src="/weddings/invitation/bottom-flowers.png"
-  alt=""
-/>
+            <img
+              className="bottom-floral-overlay"
+              src="/weddings/invitation/bottom-flowers.png"
+              alt=""
+            />
 
             <div className="hero-content">
 
@@ -49,7 +155,11 @@ function App() {
 
               <h1 className="hero-names">
                 <span>Daanish</span>
-                <span className="hero-ampersand">&amp;</span>
+
+                <span className="hero-ampersand">
+                  &amp;
+                </span>
+
                 <span>Adeena</span>
               </h1>
 
@@ -57,87 +167,111 @@ function App() {
 
             <div className="scroll-indicator">
               <span>Scroll down</span>
-              <div className="scroll-arrow">⌄</div>
+
+              <div className="scroll-arrow">
+                ⌄
+              </div>
             </div>
 
           </section>
-<ScratchReveal />
-<NikkahSection />
-<VerseSection />
-<WeddingTimeline />
-<CountdownSection />
-<LocationSection />
-<RSVPSection />
+
 
           {/* =========================
-              PAGE 2
-          ========================= */}
+              OTHER SECTIONS
+             ========================= */}
 
-          {/* <section className="details-page">
+          <ScratchReveal />
 
-  <div className="details-corner details-corner-top-left">
-    ❦
-  </div>
+          <NikkahSection />
 
-  <div className="details-corner details-corner-top-right">
-    ❦
-  </div>
+          <VerseSection />
 
-  <div className="details-corner details-corner-bottom-left">
-    ❦
-  </div>
+          <WeddingTimeline />
 
-  <div className="details-corner details-corner-bottom-right">
-    ❦
-  </div>
+          <CountdownSection />
 
-  <div className="details-content">
+          <LocationSection />
 
-    <p className="details-intro">
-      WITH JOY AND GRATITUDE
-    </p>
+          <RSVPSection />
 
-    <h2>
-      We invite you
-    </h2>
 
-    <div className="details-script">
-      to celebrate
-    </div>
+          {/* =========================
+              OLD PAGE 2
+             ========================= */}
 
-    <div className="floral-divider">
+          {/*
+          <section className="details-page">
 
-      <span className="divider-line"></span>
+            <div className="details-corner details-corner-top-left">
+              ❦
+            </div>
 
-      <span className="divider-flower">
-        ❧
-      </span>
+            <div className="details-corner details-corner-top-right">
+              ❦
+            </div>
 
-      <span className="divider-line"></span>
+            <div className="details-corner details-corner-bottom-left">
+              ❦
+            </div>
 
-    </div>
+            <div className="details-corner details-corner-bottom-right">
+              ❦
+            </div>
 
-    <p className="details-description">
-      the beginning of a beautiful journey
-      as two hearts come together
-      in the blessings of marriage.
-    </p>
+            <div className="details-content">
 
-    <div className="details-names">
-      Daanish
-      <span>&amp;</span>
-      Adeena
-    </div>
+              <p className="details-intro">
+                WITH JOY AND GRATITUDE
+              </p>
 
-    <div className="details-date-line">
-      <span></span>
-      <p>18 January 2027</p>
-      <span></span>
-    </div>
+              <h2>
+                We invite you
+              </h2>
 
-  </div>
+              <div className="details-script">
+                to celebrate
+              </div>
 
-</section> */}
+              <div className="floral-divider">
+
+                <span className="divider-line"></span>
+
+                <span className="divider-flower">
+                  ❧
+                </span>
+
+                <span className="divider-line"></span>
+
+              </div>
+
+              <p className="details-description">
+                the beginning of a beautiful journey
+                as two hearts come together
+                in the blessings of marriage.
+              </p>
+
+              <div className="details-names">
+                Daanish
+                <span>&amp;</span>
+                Adeena
+              </div>
+
+              <div className="details-date-line">
+
+                <span></span>
+
+                <p>
+                  18 January 2027
+                </p>
+
+                <span></span>
+
+              </div>
+
+            </div>
+
+          </section>
+          */}
 
         </main>
       )}

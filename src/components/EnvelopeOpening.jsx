@@ -52,14 +52,13 @@ export default function EnvelopeOpening({ onOpen }) {
 
       {started && (
         <video
-          ref={videoRef}
-          className="opening-video"
-          src="/weddings/opening/opening.mp4"
-          playsInline
-          muted
-          preload="auto"
-          onEnded={handleVideoEnd}
-        />
+  ref={videoRef}
+  className="opening-video"
+  src="/weddings/opening/opening.mp4"
+  playsInline
+  preload="auto"
+  onEnded={handleVideoEnd}
+/>
       )}
 
     </section>
