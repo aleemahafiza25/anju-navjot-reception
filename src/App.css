@@ -1763,7 +1763,8 @@ body {
 }
 
 .hero-small {
-  margin: 0 0 5px;
+  /* margin: 0 0 5px; */
+  margin-bottom:5 px;
 
   font-family: "Montserrat", sans-serif;
 
@@ -1771,9 +1772,9 @@ body {
 
   font-weight: 500;
 
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 
-  line-height: 1.4;
+  line-height: 1.6;
 
   color: #806044;
 
