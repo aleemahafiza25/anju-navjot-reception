@@ -149,9 +149,6 @@ const handleOpen = () => {
 
             <div className="hero-content">
 
-              <p className="hero-small">
-                YOU ARE INVITED
-              </p>
 
               <h1 className="hero-names">
                 <span>Daanish</span>
