@@ -956,3 +956,54 @@ body {
     margin: 8px 0;
   }
 }
+
+/* =========================================
+   MOBILE HERO NAME POSITION
+========================================= */
+
+@media (max-width: 600px) {
+
+  .hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-top: 38vh;
+    box-sizing: border-box;
+
+    z-index: 3;
+  }
+
+  .hero-small {
+    margin-bottom: 12px;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .hero-names {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0;
+    line-height: 0.85;
+
+    transform: translateY(0);
+  }
+
+  .hero-names span {
+    display: block;
+  }
+
+  .hero-ampersand {
+    margin: 8px 0;
+    line-height: 1;
+  }
+}
