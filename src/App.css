@@ -1,8 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400&display=swap");
-
-/* ================================
-   BASIC RESET
-================================ */
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 * {
   box-sizing: border-box;
@@ -17,669 +15,555 @@ body,
   min-height: 100%;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  background: #f5eee5;
   overflow-x: hidden;
 }
 
 .app {
   width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
 }
-
-
-/* ================================
-   INNER INVITATION
-   MOBILE FIRST
-================================ */
 
 .invitation {
   width: 100%;
-  min-height: 100vh;
-  background: #f5eee5;
+  overflow-x: hidden;
 }
 
 
-/* ================================
-   FIRST HERO PAGE
-================================ */
+/* =========================================================
+   PAGE 1 / HERO
+========================================================= */
 
 .hero-page {
   position: relative;
 
   width: 100%;
   height: 100svh;
-  min-height: 620px;
+  min-height: 650px;
 
   overflow: hidden;
 
-  background: #e8d8c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eee7dc;
 }
 
 
-/* ================================
-   BACKGROUND VIDEO
-================================ */
-
-/* =================================
-   HERO BACKGROUND VIDEO
-================================= */
+/* =========================================================
+   HERO VIDEO
+========================================================= */
 
 .hero-background {
   position: absolute;
+
   inset: 0;
 
   width: 100%;
   height: 100%;
 
-  display: block;
+  object-fit: cover;
 
-  object-fit: contain;
   object-position: center center;
 
-  background: #e8d8c4;
+  display: block;
 
   z-index: 0;
-  pointer-events: none;
 }
 
 
-/* ================================
-   MOBILE VIDEO
-================================ */
-
-@media (max-width: 600px) {
-  .hero-background {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center center;
-  }
-}
-
-
-/* ================================
-   SMALL PHONES
-================================ */
-
-@media (max-width: 380px) {
-  .hero-background {
-    object-fit: cover;
-    object-position: center center;
-  }
-}
-
-
-/* ================================
-   TALL PHONES
-================================ */
-
-@media (max-width: 600px) and (min-height: 750px) {
-  .hero-background {
-    object-fit: cover;
-    object-position: center center;
-  }
-}
-
-
-/* ================================
-   TABLETS
-================================ */
-
-@media (min-width: 601px) and (max-width: 1024px) {
-  .hero-background {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center center;
-  }
-}
-
-
-/* ================================
-   DESKTOP
-================================ */
-
-@media (min-width: 1025px) {
-  .hero-background {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center center;
-  }
-}
-
-
-/* ================================
-   VERY WIDE DESKTOP
-================================ */
-
-@media (min-width: 1600px) {
-  .hero-background {
-    object-fit: cover;
-    object-position: center center;
-  }
-}
-
-
-/* ================================
-   SOFT OVERLAY
-================================ */
+/* =========================================================
+   HERO OVERLAY
+========================================================= */
 
 .hero-overlay {
   position: absolute;
 
   inset: 0;
 
-  z-index: 1;
-
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
 
   background:
     linear-gradient(
       to bottom,
-      rgba(20, 13, 8, 0.08) 0%,
-      rgba(20, 13, 8, 0) 35%,
-      rgba(20, 13, 8, 0.03) 65%,
-      rgba(20, 13, 8, 0.22) 100%
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.12)
     );
-}
-
-
-/* ================================
-   HERO → SCRATCH SOFT FADE
-================================ */
-
-.hero-page::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  height: 110px;
 
   z-index: 1;
 
   pointer-events: none;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(247, 236, 223, 0) 0%,
-    rgba(247, 236, 223, 0.08) 25%,
-    rgba(247, 236, 223, 0.3) 55%,
-    rgba(247, 236, 223, 0.72) 82%,
-    #f7ecdf 100%
-  );
 }
 
 
-/* ================================
-   BOTTOM FLORAL DECORATION
-================================ */
+/* =========================================================
+   BOTTOM FLORAL OVERLAY
+========================================================= */
 
 .bottom-floral-overlay {
   position: absolute;
 
-  left: 50%;
-  bottom: -5px;
+  left: 0;
+  bottom: 0;
 
   width: 100%;
-  max-width: none;
 
-  transform: translateX(-50%);
-  transform-origin: center bottom;
+  height: auto;
 
-  z-index: 2;
+  display: block;
+
+  z-index: 3;
 
   pointer-events: none;
 
-  animation: floralSway 6s ease-in-out infinite;
+  user-select: none;
 }
 
 
-/* ================================
-   GENTLE FLORAL MOVEMENT
-================================ */
-
-@keyframes floralSway {
-  0%,
-  100% {
-    transform: translateX(-50%) rotate(0deg);
-  }
-
-  50% {
-    transform: translateX(-50%) rotate(0.7deg);
-  }
-}
-
-
-/* ================================
+/* =========================================================
    HERO CONTENT
-================================ */
+========================================================= */
 
 .hero-content {
-  position: absolute;
+  position: relative;
 
-  inset: 0;
+  z-index: 4;
 
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  max-width: 1100px;
 
-  align-items: center;
-
-  justify-content: flex-start;
+  padding: 0 30px;
 
   text-align: center;
 
-  z-index: 2;
-
-  padding: 27vh 20px 0;
+  color: white;
 }
 
 
-/* ================================
-   TOP TEXT
-================================ */
+/* =========================================================
+   HERO SMALL TEXT
+========================================================= */
 
 .hero-small {
-  margin: 0 0 14px;
+  margin: 0 0 15px;
 
-  max-width: 70%;
-
-  font-family: serif;
+  font-family: "Montserrat", sans-serif;
 
   font-size: 10px;
+
   font-weight: 400;
 
-  letter-spacing: 2.5px;
-  line-height: 1.6;
+  letter-spacing: 4px;
 
-  text-transform: uppercase;
+  line-height: 1.5;
 
-  color: #725638;
+  color: rgba(255, 255, 255, 0.95);
 
-  text-shadow:
-    0 1px 3px rgba(158, 158, 158, 0.35);
+  text-align: center;
 }
 
 
-/* ================================
-   COUPLE NAMES
-================================ */
+/* =========================================================
+   HERO NAMES
+========================================================= */
 
-.hero-content h1 {
+.hero-names {
   margin: 0;
 
   display: flex;
-  flex-direction: column;
 
   align-items: center;
+  justify-content: center;
+
+  gap: 20px;
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: clamp(58px, 17vw, 86px);
+  font-size: clamp(58px, 8vw, 105px);
 
-  font-weight: 500;
-
-  font-style: italic;
-
-  line-height: 0.82;
-
-  letter-spacing: -1px;
-
-  color: #725638;
-
-  text-shadow:
-    0 2px 5px rgba(255, 255, 255, 0.3);
-}
-
-
-/* ================================
-   NAME SPANS
-================================ */
-
-.hero-content h1 span {
-  display: block;
-
-  margin: 10px 0;
-
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 1em;
-
-  font-weight: 500;
+  font-weight: 400;
 
   font-style: italic;
 
-  line-height: 1;
+  line-height: 0.95;
 
-  letter-spacing: 0;
+  color: #fff;
 
-  color: #725638;
+  text-align: center;
+
+  white-space: nowrap;
 }
 
 
-/* ================================
+/* =========================================================
    AMPERSAND
-================================ */
+========================================================= */
 
-.hero-content h1 .hero-ampersand {
-  font-size: 0.7em;
+.hero-ampersand {
+  font-family: "Cormorant Garamond", serif;
 
-  margin: 5px 0;
+  font-size: 0.65em;
 
-  font-weight: 500;
+  font-style: normal;
 
-  font-style: italic;
+  font-weight: 400;
+
+  opacity: 0.95;
 }
 
 
-/* ================================
+/* =========================================================
    SCROLL INDICATOR
-================================ */
+========================================================= */
 
 .scroll-indicator {
   position: absolute;
 
   left: 50%;
-  bottom: 25px;
+  bottom: 5%;
 
   transform: translateX(-50%);
 
-  z-index: 3;
+  z-index: 5;
 
   display: flex;
-
   flex-direction: column;
 
   align-items: center;
 
-  justify-content: center;
+  gap: 6px;
 
-  color: #725638;
+  color: rgba(255, 255, 255, 0.9);
+
+  pointer-events: none;
 
   text-align: center;
-
-  white-space: nowrap;
-
-  text-shadow:
-    0 1px 4px rgba(255, 255, 255, 0.35);
-
-  animation:
-    scrollFloat 2.2s ease-in-out infinite;
 }
-
-
-/* ================================
-   SCROLL TEXT
-================================ */
 
 .scroll-indicator span {
   font-family: "Montserrat", sans-serif;
 
-  font-size: 9px;
-
-  font-weight: 300;
+  font-size: 8px;
 
   letter-spacing: 3px;
 
   text-transform: uppercase;
 }
 
-
-/* ================================
-   SCROLL ARROW
-================================ */
-
 .scroll-arrow {
-  margin-top: 5px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 25px;
+  font-size: 20px;
 
   line-height: 1;
 
-  font-weight: 300;
+  animation: scrollBounce 1.7s ease-in-out infinite;
 }
 
-
-/* ================================
-   SCROLL ANIMATION
-================================ */
-
-@keyframes scrollFloat {
+@keyframes scrollBounce {
   0%,
   100% {
-    transform: translate(-50%, 0);
+    transform: translateY(0);
   }
 
   50% {
-    transform: translate(-50%, 7px);
+    transform: translateY(6px);
   }
 }
 
 
-/* ================================
-   SMALL PHONES
-================================ */
+/* =========================================================
+   MOBILE HERO
+========================================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 600px) {
+
+  .hero-page {
+    width: 100vw;
+
+    height: 100svh;
+
+    min-height: 100svh;
+
+    overflow: hidden;
+  }
+
+
+  /* Keep video filling the entire phone */
+
+  .hero-background {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center center;
+  }
+
+
   .hero-content {
-    padding-left: 18px;
-    padding-right: 18px;
-    padding-top: 25vh;
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    padding: 0 24px;
+
+    box-sizing: border-box;
+
+    text-align: center;
   }
 
-  .hero-content h1 {
-    font-size: 52px;
-  }
 
   .hero-small {
-    font-size: 9px;
+    margin-bottom: 10px;
+
+    font-size: 7px;
+
     letter-spacing: 2.2px;
+
+    line-height: 1.5;
+
+    white-space: nowrap;
   }
+
+
+  /*
+     IMPORTANT:
+     Keep each name on its own line on mobile.
+     This prevents "Adeena" from getting squeezed
+     or clipped on narrow phones.
+  */
+
+  .hero-names {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    margin: 0;
+
+    gap: 0;
+
+    font-size: clamp(48px, 15vw, 72px);
+
+    line-height: 0.88;
+
+    white-space: normal;
+
+    text-align: center;
+  }
+
+
+  .hero-names span {
+    display: block;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  .hero-ampersand {
+    width: auto !important;
+
+    margin: 5px 0;
+
+    font-size: 0.52em;
+
+    line-height: 0.8;
+  }
+
 
   .scroll-indicator {
-    bottom: 20px;
+    bottom: 4.5%;
+  }
+
+
+  .scroll-indicator span {
+    font-size: 7px;
+
+    letter-spacing: 2.5px;
+  }
+
+
+  .scroll-arrow {
+    font-size: 18px;
+  }
+
+
+  .bottom-floral-overlay {
+    width: 100%;
+
+    max-width: none;
+
+    bottom: 0;
+
+    left: 0;
   }
 }
 
 
-/* ================================
-   TALL PHONES
-================================ */
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
 
-@media (min-height: 800px) and (max-width: 600px) {
-  .hero-background {
-    object-position: center center;
-  }
+@media (max-width: 400px) {
 
   .hero-content {
-    padding-top: 25vh;
-  }
-}
-
-
-/* ================================
-   TABLETS / DESKTOP
-================================ */
-
-@media (min-width: 601px) {
-  .hero-page {
-    height: 100vh;
-    min-height: 700px;
+    padding-left: 28px;
+    padding-right: 28px;
   }
 
-  .hero-background {
-    object-position: center center;
-  }
-
-  .hero-content {
-    padding-top: 23vh;
-  }
-
-  .hero-content h1 {
-    font-size: clamp(60px, 8vw, 95px);
-  }
 
   .hero-small {
-    font-size: 13px;
+    font-size: 6.5px;
+
+    letter-spacing: 1.8px;
+  }
+
+
+  .hero-names {
+    font-size: 50px;
+
+    line-height: 0.88;
+  }
+
+
+  .hero-ampersand {
+    margin: 4px 0;
+
+    font-size: 0.5em;
   }
 }
 
 
-/* ================================
-   PAGE 2
-   ELEGANT INVITATION CARD
-================================ */
+/* =========================================================
+   EXTRA SMALL PHONES
+========================================================= */
 
-.details-page {
+@media (max-width: 360px) {
+
+  .hero-content {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+
+  .hero-small {
+    font-size: 6px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  .hero-names {
+    font-size: 46px;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 601px) {
+
+  .hero-page {
+    min-height: 650px;
+
+    height: 100svh;
+  }
+
+
+  .hero-background {
+    object-fit: cover;
+  }
+
+
+  .hero-content {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+
+/* =========================================================
+   LOCATION SECTION
+========================================================= */
+
+.location-section {
   position: relative;
 
   width: 100%;
-  min-height: 100svh;
 
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
+  min-height: 700px;
 
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255, 255, 255, 0.72) 0%,
-      rgba(249, 242, 232, 0.95) 48%,
-      #eadbc8 100%
-    );
+  background: #f7ecdf;
 
-  padding: 70px 24px;
+  color: #806346;
+
+  padding: 15px 10px 70px;
+
+  box-sizing: border-box;
 }
 
 
-/* ================================
-   OUTER FRAME
-================================ */
-
-.details-page::before {
-  content: "";
-
+.location-fade-top {
   position: absolute;
 
-  inset: 18px;
-
-  border: 1px solid rgba(114, 86, 56, 0.22);
-
-  pointer-events: none;
-}
-
-
-/* ================================
-   INNER FRAME
-================================ */
-
-.details-page::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 27px;
-
-  border: 1px solid rgba(114, 86, 56, 0.09);
-
-  pointer-events: none;
-}
-
-
-/* ================================
-   CORNER ORNAMENTS
-================================ */
-
-.details-corner {
-  position: absolute;
-
-  z-index: 3;
-
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 34px;
-
-  font-style: italic;
-
-  color: #9b7950;
-
-  opacity: 0.65;
-
-  line-height: 1;
-}
-
-.details-corner-top-left {
-  top: 35px;
-  left: 36px;
-
-  transform: rotate(-45deg);
-}
-
-.details-corner-top-right {
-  top: 35px;
-  right: 36px;
-
-  transform: rotate(45deg);
-}
-
-.details-corner-bottom-left {
-  bottom: 35px;
-  left: 36px;
-
-  transform: rotate(-135deg);
-}
-
-.details-corner-bottom-right {
-  bottom: 35px;
-  right: 36px;
-
-  transform: rotate(135deg);
-}
-
-
-/* ================================
-   CONTENT
-================================ */
-
-.details-content {
-  position: relative;
-
-  z-index: 4;
+  top: 0;
+  left: 0;
 
   width: 100%;
-  max-width: 420px;
+  height: 60px;
 
-  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 236, 223, 0),
+    #f7ecdf
+  );
 
-  color: #725638;
+  pointer-events: none;
 
-  padding: 30px 20px;
+  z-index: 2;
 }
 
 
-/* ================================
-   SMALL INTRO
-================================ */
+.location-content {
+  position: relative;
 
-.details-intro {
-  margin: 0 0 22px;
+  z-index: 5;
+
+  width: 100%;
+
+  max-width: 620px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+
+.location-eyebrow {
+  margin: 0 0 5px;
 
   font-family: "Montserrat", sans-serif;
 
@@ -687,24 +571,18 @@ body {
 
   font-weight: 400;
 
-  letter-spacing: 3.5px;
+  letter-spacing: 3px;
 
-  line-height: 1.8;
-
-  color: #8b6a47;
+  color: #92704b;
 }
 
 
-/* ================================
-   MAIN HEADING
-================================ */
-
-.details-content h2 {
+.location-title {
   margin: 0;
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 38px;
+  font-size: clamp(43px, 9vw, 58px);
 
   font-weight: 400;
 
@@ -712,109 +590,59 @@ body {
 
   line-height: 1;
 
-  color: #725638;
+  color: #b28a4a;
 }
 
 
-/* ================================
-   SCRIPT TEXT
-================================ */
+.location-divider {
+  width: 170px;
 
-.details-script {
-  margin-top: 2px;
+  margin: 10px auto 18px;
 
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 55px;
-
-  font-weight: 500;
-
-  font-style: italic;
-
-  line-height: 1;
-
-  color: #725638;
-}
-
-
-/* ================================
-   FLORAL DIVIDER
-================================ */
-
-.floral-divider {
   display: flex;
 
   align-items: center;
 
   justify-content: center;
 
-  gap: 10px;
-
-  width: 85%;
-
-  margin: 28px auto 27px;
+  gap: 8px;
 }
 
-.divider-line {
+
+.location-divider span {
   flex: 1;
 
   height: 1px;
 
-  background:
-    linear-gradient(
-      to right,
-      transparent,
-      rgba(114, 86, 56, 0.35)
-    );
-}
-
-.divider-line:last-child {
-  background:
-    linear-gradient(
-      to left,
-      transparent,
-      rgba(114, 86, 56, 0.35)
-    );
-}
-
-.divider-flower {
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 24px;
-
-  color: #9b7950;
-
-  transform: rotate(-8deg);
+  background: rgba(178, 138, 74, 0.5);
 }
 
 
-/* ================================
-   DESCRIPTION
-================================ */
-
-.details-description {
-  margin: 0 auto;
-
-  max-width: 290px;
-
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 18px;
+.location-divider b {
+  font-size: 10px;
 
   font-weight: 400;
 
-  line-height: 1.65;
-
-  color: #806346;
+  color: #b28a4a;
 }
 
 
-/* ================================
-   NAMES
-================================ */
+/* =========================================================
+   LOCATION MAP FRAME
+========================================================= */
 
-.details-names {
-  margin-top: 32px;
+.location-map-frame {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 620px;
+
+  height: 470px;
+
+  margin: 18px auto 0;
+
+  overflow: hidden;
 
   display: flex;
 
@@ -822,248 +650,362 @@ body {
 
   justify-content: center;
 
-  gap: 10px;
+  background: transparent;
+
+  border: none;
+
+  outline: none;
+
+  box-shadow: none;
+
+  box-sizing: border-box;
+}
+
+
+.map-border {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: fill;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  z-index: 3;
+}
+
+
+.location-map {
+  position: absolute;
+
+  top: 32px;
+
+  left: 20px;
+
+  right: 20px;
+
+  bottom: 2px;
+
+  width: auto;
+
+  height: auto;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background: #eee7dc;
+
+  z-index: 2;
+
+  box-sizing: border-box;
+}
+
+
+.location-map iframe {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  border: 0;
+
+  border-radius: inherit;
+}
+
+
+/* =========================================================
+   LOCATION INFO
+========================================================= */
+
+.location-info {
+  margin-top: 25px;
+
+  text-align: center;
+}
+
+
+.location-info h3 {
+  margin: 0;
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 27px;
+  font-size: 30px;
 
-  font-weight: 500;
+  font-weight: 400;
 
   font-style: italic;
-
-  letter-spacing: 0.5px;
 
   color: #725638;
 }
 
-.details-names span {
-  font-size: 20px;
 
-  font-weight: 400;
+.location-info p {
+  margin: 7px 0 17px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 15px;
+
+  line-height: 1.35;
+
+  color: #92704b;
 }
 
 
-/* ================================
-   DATE
-================================ */
+/* =========================================================
+   LOCATION BUTTON
+========================================================= */
 
-.details-date-line {
-  display: flex;
+.location-button {
+  display: inline-flex;
 
   align-items: center;
 
   justify-content: center;
 
-  gap: 12px;
+  min-width: 125px;
 
-  margin-top: 25px;
-}
+  padding: 9px 18px;
 
-.details-date-line span {
-  width: 25px;
+  border: 1px solid rgba(178, 138, 74, 0.6);
 
-  height: 1px;
+  background: rgba(255, 250, 243, 0.45);
 
-  background: rgba(114, 86, 56, 0.3);
-}
+  color: #806346;
 
-.details-date-line p {
-  margin: 0;
+  text-decoration: none;
 
   font-family: "Montserrat", sans-serif;
 
   font-size: 8px;
 
-  font-weight: 400;
+  letter-spacing: 2px;
 
-  letter-spacing: 2.5px;
-
-  text-transform: uppercase;
-
-  color: #725638;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
 
-/* ================================
-   DESKTOP DETAILS
-================================ */
+.location-button:hover {
+  background: rgba(178, 138, 74, 0.12);
 
-@media (min-width: 601px) {
-  .details-page {
-    min-height: 100vh;
+  transform: translateY(-1px);
+}
 
-    padding: 100px 40px;
+
+/* =========================================================
+   LOCATION FLOWERS
+========================================================= */
+
+.location-flower {
+  position: absolute;
+
+  z-index: 3;
+
+  width: 155px;
+
+  height: auto;
+
+  opacity: 0.75;
+
+  pointer-events: none;
+}
+
+
+.location-flower-left {
+  left: -75px;
+
+  bottom: -15px;
+
+  transform: rotate(8deg);
+}
+
+
+.location-flower-right {
+  right: -75px;
+
+  bottom: -15px;
+
+  transform: scaleX(-1) rotate(8deg);
+}
+
+
+.location-fade-bottom {
+  position: absolute;
+
+  left: 0;
+
+  bottom: 0;
+
+  width: 100%;
+
+  height: 70px;
+
+  background: linear-gradient(
+    to top,
+    #f7ecdf,
+    rgba(247, 236, 223, 0)
+  );
+
+  pointer-events: none;
+
+  z-index: 4;
+}
+
+
+/* =========================================================
+   LOCATION MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .location-section {
+    min-height: 680px;
+
+    padding: 35px 8px 70px;
   }
 
-  .details-page::before {
-    inset: 35px;
+
+  .location-eyebrow {
+    font-size: 7px;
+
+    letter-spacing: 2.5px;
   }
 
-  .details-page::after {
-    inset: 45px;
-  }
 
-  .details-content {
-    max-width: 600px;
-  }
-
-  .details-content h2 {
+  .location-title {
     font-size: 45px;
   }
 
-  .details-script {
-    font-size: 72px;
+
+  .location-divider {
+    width: 155px;
+
+    margin-top: 9px;
+
+    margin-bottom: 15px;
   }
 
-  .details-description {
-    max-width: 430px;
 
-    font-size: 20px;
-  }
-}
-
-
-/* ================================
-   FIRST PAGE FADE IN
-================================ */
-
-.invitation {
-  animation: invitationFadeIn 1.8s ease forwards;
-}
-
-@keyframes invitationFadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@media (max-width: 600px) {
-
-  .hero-content {
-    transform: translateY(-9vh);
-  }
-
-  .hero-names {
-    line-height: 0.85;
-  }
-
-  .hero-ampersand {
-    margin: 8px 0;
-  }
-}
-
-/* =========================================
-   MOBILE HERO NAME POSITION
-========================================= */
-
-@media (max-width: 600px) {
-
-  .hero-content {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .location-map-frame {
     width: 100%;
-    height: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    max-width: 580px;
 
-    padding-top: 38vh;
-    box-sizing: border-box;
+    height: 400px;
 
-    z-index: 3;
+    margin-top: 15px;
+
+    overflow: hidden;
   }
 
-  .hero-small {
-    margin-bottom: 12px;
-    text-align: center;
-    padding: 0 20px;
+
+  .location-map {
+    top: 27px;
+
+    left: 17px;
+
+    right: 17px;
+
+    bottom: 27px;
+
+    border-radius: 20px;
   }
 
-  .hero-names {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
-    margin: 0;
-    line-height: 0.85;
-
-    transform: translateY(0);
+  .location-info {
+    margin-top: 22px;
   }
 
-  .hero-names span {
-    display: block;
+
+  .location-info h3 {
+    font-size: 27px;
   }
 
-  .hero-ampersand {
-    margin: 8px 0;
-    line-height: 1;
+
+  .location-info p {
+    font-size: 14px;
+
+    margin-bottom: 15px;
+  }
+
+
+  .location-button {
+    padding: 8px 16px;
+
+    font-size: 7px;
+  }
+
+
+  .location-flower {
+    width: 125px;
+  }
+
+
+  .location-flower-left {
+    left: -65px;
+  }
+
+
+  .location-flower-right {
+    right: -65px;
   }
 }
 
-/* =========================================
-   BACKGROUND MUSIC BUTTON
-========================================= */
 
-.music-toggle {
-  position: fixed;
-  top: 22px;
-  right: 22px;
+/* =========================================================
+   LOCATION VERY SMALL PHONES
+========================================================= */
 
-  width: 44px;
-  height: 44px;
+@media (max-width: 380px) {
 
-  border-radius: 50%;
-  border: 1px solid rgba(126, 99, 68, 0.35);
+  .location-section {
+    min-height: 650px;
 
-  background: rgba(250, 244, 235, 0.78);
-  backdrop-filter: blur(8px);
+    padding-top: 30px;
+  }
 
-  color: #806d55;
 
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 21px;
+  .location-title {
+    font-size: 42px;
+  }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  cursor: pointer;
+  .location-map-frame {
+    height: 370px;
 
-  z-index: 9999;
+    margin-top: 14px;
+  }
 
-  box-shadow: 0 4px 18px rgba(80, 60, 40, 0.12);
 
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
-}
+  .location-map {
+    top: 23px;
 
-.music-toggle:hover {
-  transform: scale(1.08);
-}
+    left: 14px;
 
-.music-toggle:active {
-  transform: scale(0.95);
-}
+    right: 14px;
 
-/* Mobile */
+    bottom: 23px;
 
-@media (max-width: 600px) {
-  .music-toggle {
-    top: 16px;
-    right: 16px;
+    border-radius: 18px;
+  }
 
-    width: 38px;
-    height: 38px;
 
-    font-size: 18px;
+  .location-info h3 {
+    font-size: 25px;
+  }
+
+
+  .location-flower {
+    width: 110px;
   }
 }
