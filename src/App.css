@@ -1864,3 +1864,48 @@ body {
 
   text-align: center;
 }
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center center;
+
+  display: block;
+
+  z-index: 0;
+}
+
+.hero-page {
+  position: relative;
+
+  width: 100%;
+  height: 100svh;
+  min-height: 650px;
+
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .hero-page {
+    height: 100svh;
+    min-height: 0;
+  }
+
+  .hero-background {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+@media (min-width: 901px) {
+  .hero-background {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+

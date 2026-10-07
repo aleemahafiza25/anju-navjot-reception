@@ -182,8 +182,7 @@
 
   display: grid;
 
-  grid-template-columns: minmax(0, 1fr) 42px minmax(0, 1fr);
-
+grid-template-columns: minmax(0, 1fr) 46px minmax(0, 1fr);
   align-items: center;
 
   width: 100%;
@@ -737,5 +736,50 @@
   .timeline-flower {
     width: 22px;
     height: 22px;
+  }
+}
+
+.timeline-content {
+  max-width: 680px;
+}
+
+.timeline-image {
+  width: 170px;
+  height: 132px;
+}
+
+.timeline-info h3 {
+  font-size: 29px;
+}
+
+.timeline-info p {
+  max-width: 200px;
+  font-size: 14px;
+}
+
+.timeline-flower {
+  width: 42px;
+  height: 42px;
+}
+
+@media (max-width: 600px) {
+
+  .timeline-image {
+    width: 125px;
+    height: 100px;
+  }
+
+  .timeline-info h3 {
+    font-size: 22px;
+  }
+
+  .timeline-info p {
+    max-width: 135px;
+    font-size: 12.5px;
+  }
+
+  .timeline-flower {
+    width: 36px;
+    height: 36px;
   }
 }
