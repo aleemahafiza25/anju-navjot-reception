@@ -35,37 +35,28 @@ export default function EnvelopeOpening({ onOpen }) {
   };
 
   return (
-    <section
-      className={`envelope-screen ${
-        started ? "video-started" : ""
-      } ${finishing ? "finishing" : ""}`}
-      onClick={!started ? handleOpen : undefined}
-    >
-      {!started && (
-        <div className="envelope-stage">
-          <img
-            src="/weddings/opening/envelope.png"
-            alt="Wedding invitation envelope"
-            className="envelope-image"
-          />
+  <section
+    className={`envelope-screen ${
+      started ? "video-started" : ""
+    } ${finishing ? "finishing" : ""}`}
+    onClick={!started ? handleOpen : undefined}
+  >
+    <video
+      ref={videoRef}
+      className="opening-video"
+      src="/weddings/opening/opening.mp4"
+      playsInline
+      preload="auto"
+      muted
+      onEnded={handleVideoEnd}
+    />
 
-          <div className="tap-message">
-            <span className="tap-dot"></span>
-            <p>Tap to open</p>
-          </div>
-        </div>
-      )}
-
-      {started && (
-        <video
-          ref={videoRef}
-          className="opening-video"
-          src="/weddings/opening/opening.mp4"
-          playsInline
-          preload="auto"
-          onEnded={handleVideoEnd}
-        />
-      )}
-    </section>
-  );
+    {!started && (
+      <div className="tap-message">
+        <span className="tap-dot"></span>
+        <p>Tap to open</p>
+      </div>
+    )}
+  </section>
+);
 }
