@@ -5,9 +5,11 @@
 .envelope-screen {
   position: fixed;
   inset: 0;
+
   width: 100%;
   height: 100dvh;
   min-height: 100vh;
+
   overflow: hidden;
 
   display: flex;
@@ -15,10 +17,13 @@
   justify-content: center;
 
   background: #eee7dc;
+
   z-index: 9999;
 
   cursor: pointer;
   user-select: none;
+
+  transition: background 1.2s ease;
 }
 
 
@@ -40,22 +45,13 @@
 }
 
 
-/*
-   The envelope image itself.
-
-   Desktop:
-   The image becomes large enough to cover the screen.
-
-   Mobile:
-   It scales down naturally while keeping the correct
-   portrait proportions.
-*/
+/* Envelope image */
 
 .envelope-image {
   display: block;
 
   width: auto;
-  height: 100%;
+  height: 100dvh;
 
   max-width: none;
 
@@ -128,21 +124,26 @@
 
 .opening-video {
   position: fixed;
-
   inset: 0;
 
   width: 100%;
-  height: 100%;
+  height: 100dvh;
 
   display: block;
 
-  object-fit: cover;
+  /*
+    Keep the complete video visible.
+    This prevents the video from being cropped.
+  */
+  object-fit: contain;
 
   background: #eee7dc;
 
   z-index: 10000;
 
   opacity: 1;
+
+  transform: scale(1);
 
   transition:
     opacity 1.2s ease,
@@ -151,17 +152,20 @@
 
 
 /* =========================================================
-   VIDEO END TRANSITION
+   VIDEO FINISHING
    ========================================================= */
+
+.envelope-screen.finishing {
+  background: #f5eee5;
+}
+
 
 .envelope-screen.finishing .opening-video {
   opacity: 0;
 
   transform: scale(1.02);
-}
 
-.envelope-screen.finishing {
-  background: #f5eee5;
+  pointer-events: none;
 }
 
 
@@ -195,11 +199,17 @@
   .tap-message {
     bottom: 6vh;
   }
+
+  .opening-video {
+    width: 100vw;
+    height: 100dvh;
+    object-fit: contain;
+  }
 }
 
 
 /* =========================================================
-   LAPTOP / NORMAL DESKTOP
+   NORMAL DESKTOP / LAPTOP
    ========================================================= */
 
 @media (min-width: 901px) and (max-width: 1399px) {
@@ -210,6 +220,12 @@
   .tap-message {
     bottom: 6vh;
   }
+
+  .opening-video {
+    width: 100vw;
+    height: 100dvh;
+    object-fit: contain;
+  }
 }
 
 
@@ -219,7 +235,7 @@
 
 @media (min-width: 601px) and (max-width: 900px) {
   .envelope-image {
-    height: 100vh;
+    height: 100dvh;
     width: auto;
   }
 
@@ -231,6 +247,12 @@
     font-size: 12px;
     letter-spacing: 2.5px;
   }
+
+  .opening-video {
+    width: 100vw;
+    height: 100dvh;
+    object-fit: contain;
+  }
 }
 
 
@@ -240,19 +262,14 @@
 
 @media (max-width: 600px) {
   .envelope-screen {
+    width: 100vw;
     height: 100dvh;
-    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   .envelope-image {
-    /*
-      On phones the screen is much narrower,
-      so use the full height while preserving
-      the envelope's portrait proportions.
-    */
     height: 100dvh;
     width: auto;
-
     max-width: none;
   }
 
@@ -268,6 +285,18 @@
   .tap-dot {
     width: 6px;
     height: 6px;
+  }
+
+  .opening-video {
+    width: 100vw;
+    height: 100dvh;
+
+    /*
+      Keep the whole opening animation visible.
+    */
+    object-fit: contain;
+
+    background: #eee7dc;
   }
 }
 
@@ -289,6 +318,12 @@
     font-size: 9px;
     letter-spacing: 2px;
   }
+
+  .opening-video {
+    width: 100vw;
+    height: 100dvh;
+    object-fit: contain;
+  }
 }
 
 
@@ -304,105 +339,10 @@
   .tap-message {
     bottom: 25px;
   }
-}
 
-/* =========================================================
-   RESPONSIVE OPENING VIDEO
-   ========================================================= */
-
-.opening-video {
-  position: fixed;
-  inset: 0;
-
-  width: 100%;
-  height: 100dvh;
-
-  display: block;
-
-  /*
-    Show the COMPLETE video.
-    Nothing gets cropped.
-  */
-  object-fit: contain;
-
-  /*
-    Match the cream background around the video.
-  */
-  background: #eee7dc;
-
-  z-index: 10000;
-
-  opacity: 1;
-
-  transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
-}
-
-
-/* =========================================================
-   VIDEO END FADE
-   ========================================================= */
-
-.envelope-screen.finishing .opening-video {
-  opacity: 0;
-  transform: scale(1.02);
-}
-
-
-/* =========================================================
-   DESKTOP
-   ========================================================= */
-
-@media (min-width: 901px) {
   .opening-video {
     width: 100vw;
     height: 100dvh;
-
     object-fit: contain;
   }
 }
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (min-width: 601px) and (max-width: 900px) {
-  .opening-video {
-    width: 100vw;
-    height: 100dvh;
-
-    object-fit: contain;
-  }
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 600px) {
-  .opening-video {
-    width: 100vw;
-    height: 100dvh;
-
-    object-fit: contain;
-  }
-}
-
-
-/* =========================================================
-   VERY SHORT SCREENS
-   ========================================================= */
-
-@media (max-height: 650px) {
-  .opening-video {
-    width: 100vw;
-    height: 100dvh;
-
-    object-fit: contain;
-  }
-}
-
-

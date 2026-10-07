@@ -9,7 +9,6 @@
   padding: 0;
 
   background: #f7ecdf;
-
   overflow: hidden;
 
   color: #94734e;
@@ -28,22 +27,12 @@
 
   margin: 0 auto;
 
-  /*
-    Slightly taller than before so the
-    invitation has enough breathing room.
-  */
   min-height: 900px;
 
   background-image: url("/weddings/invitation/nikkah-bg.png");
-
   background-repeat: no-repeat;
 
-  /*
-    Slightly enlarge the artwork to remove
-    the unwanted blank strip at the top.
-  */
   background-position: center center;
-
   background-size: 102% 102%;
 }
 
@@ -63,12 +52,7 @@
 
   box-sizing: border-box;
 
-  /*
-    These values control where the text
-    sits inside the artwork.
-  */
-  padding:
-    8% 15% 14%;
+  padding: 8% 15% 14%;
 
   display: flex;
   justify-content: flex-start;
@@ -106,7 +90,6 @@
   flex-direction: column;
 
   align-items: center;
-
   text-align: center;
 }
 
@@ -138,7 +121,6 @@
   font-family: "Montserrat", sans-serif;
 
   font-size: 9px;
-
   font-weight: 400;
 
   line-height: 1.7;
@@ -159,14 +141,14 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 62px;
-
   font-weight: 400;
-
   font-style: italic;
 
   line-height: 0.9;
 
   color: #b28a4a;
+
+  white-space: nowrap;
 }
 
 
@@ -182,7 +164,6 @@
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 8px;
@@ -236,6 +217,8 @@
   letter-spacing: 0.4px;
 
   color: #806346;
+
+  white-space: nowrap;
 }
 
 
@@ -279,12 +262,13 @@
   font-size: 27px;
 
   font-weight: 400;
-
   font-style: italic;
 
   line-height: 1;
 
   color: #92704b;
+
+  white-space: nowrap;
 }
 
 
@@ -333,7 +317,6 @@
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 8px;
@@ -357,100 +340,6 @@
 
 
 /* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-  .nikkah-inner {
-    min-height: 900px;
-
-    background-size: 102% 102%;
-    background-position: center center;
-  }
-
-  .nikkah-arch {
-    padding:
-      8% 13% 13%;
-  }
-
-  .nikkah-bismillah {
-    font-size: 22px;
-
-    margin-bottom: 12px;
-  }
-
-  .nikkah-intro {
-    font-size: 8px;
-
-    margin-bottom: 12px;
-  }
-
-  .nikkah-name {
-    font-size: 55px;
-  }
-
-  .nikkah-divider {
-    margin-top: 13px;
-    margin-bottom: 11px;
-  }
-
-  .nikkah-parents {
-    font-size: 13px;
-  }
-
-  .nikkah-with {
-    font-size: 21px;
-
-    margin-top: 15px;
-  }
-
-  .nikkah-message-title {
-    font-size: 24px;
-
-    margin-top: 22px;
-  }
-
-  .nikkah-message {
-    font-size: 15px;
-  }
-}
-
-
-/* =========================================
-   SMALL PHONES
-========================================= */
-
-@media (max-width: 380px) {
-
-  .nikkah-inner {
-    min-height: 850px;
-  }
-
-  .nikkah-arch {
-    padding-left: 12%;
-    padding-right: 12%;
-  }
-
-  .nikkah-bismillah {
-    font-size: 20px;
-  }
-
-  .nikkah-name {
-    font-size: 48px;
-  }
-
-  .nikkah-message-title {
-    font-size: 22px;
-  }
-
-  .nikkah-message {
-    font-size: 14px;
-  }
-}
-
-
-/* =========================================
    SOFT FADE AROUND NIKKAH BACKGROUND
 ========================================= */
 
@@ -458,12 +347,15 @@
   content: "";
 
   position: absolute;
+
   inset: 0;
 
   z-index: 3;
+
   pointer-events: none;
 
   background:
+
     /* LEFT EDGE */
     linear-gradient(
       to right,
@@ -493,14 +385,238 @@
       transparent 16%
     ),
 
-/* BOTTOM EDGE */
-linear-gradient(
-  to top,
-  #f7ecdf 0%,
-  rgba(247, 236, 223, 0.95) 4%,
-  rgba(247, 236, 223, 0.75) 9%,
-  rgba(247, 236, 223, 0.45) 15%,
-  rgba(247, 236, 223, 0.18) 21%,
-  transparent 30%
-)
+    /* BOTTOM EDGE */
+    linear-gradient(
+      to top,
+      #f7ecdf 0%,
+      rgba(247, 236, 223, 0.95) 4%,
+      rgba(247, 236, 223, 0.75) 9%,
+      rgba(247, 236, 223, 0.45) 15%,
+      rgba(247, 236, 223, 0.18) 21%,
+      transparent 30%
+    );
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .nikkah-inner {
+    width: 100%;
+    min-height: 0;
+
+    /*
+      Keep the artwork proportional to the phone.
+      145vw gives the section enough vertical room
+      without creating the huge fixed 900px block.
+    */
+    aspect-ratio: 620 / 900;
+
+    background-size: 102% 102%;
+    background-position: center center;
+  }
+
+
+  .nikkah-arch {
+    padding:
+      8% 11% 13%;
+  }
+
+
+  .nikkah-bismillah {
+    font-size: clamp(19px, 5vw, 22px);
+
+    margin-bottom: 11px;
+  }
+
+
+  .nikkah-intro {
+    font-size: clamp(7px, 2vw, 8px);
+
+    line-height: 1.65;
+
+    letter-spacing: 1.3px;
+
+    margin-bottom: 11px;
+  }
+
+
+  .nikkah-name {
+    font-size: clamp(45px, 14vw, 55px);
+
+    line-height: 0.9;
+
+    white-space: nowrap;
+  }
+
+
+  .nikkah-divider {
+    width: clamp(85px, 27vw, 105px);
+
+    margin-top: 12px;
+    margin-bottom: 10px;
+
+    gap: 7px;
+  }
+
+
+  .nikkah-divider b {
+    font-size: 8px;
+  }
+
+
+  .nikkah-relation {
+    font-size: 7px;
+
+    letter-spacing: 1.3px;
+  }
+
+
+  .nikkah-parents {
+    font-size: clamp(11px, 3.6vw, 13px);
+
+    letter-spacing: 0.25px;
+
+    white-space: nowrap;
+  }
+
+
+  .nikkah-with {
+    font-size: clamp(19px, 6vw, 21px);
+
+    margin-top: 14px;
+    margin-bottom: 5px;
+  }
+
+
+  .nikkah-bride {
+    margin-bottom: 8px;
+  }
+
+
+  .nikkah-message-title {
+    font-size: clamp(20px, 6.5vw, 24px);
+
+    margin-top: 20px;
+    margin-bottom: 7px;
+
+    white-space: nowrap;
+  }
+
+
+  .nikkah-message {
+    font-size: clamp(13px, 4vw, 15px);
+
+    line-height: 1.22;
+  }
+
+
+  .nikkah-bottom-divider {
+    width: clamp(100px, 32vw, 125px);
+
+    bottom: 3%;
+  }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  .nikkah-inner {
+    aspect-ratio: 620 / 900;
+  }
+
+
+  .nikkah-arch {
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+
+
+  .nikkah-bismillah {
+    font-size: 19px;
+
+    margin-bottom: 9px;
+  }
+
+
+  .nikkah-intro {
+    font-size: 7px;
+
+    letter-spacing: 1.1px;
+
+    margin-bottom: 9px;
+  }
+
+
+  .nikkah-name {
+    font-size: 45px;
+  }
+
+
+  .nikkah-divider {
+    width: 82px;
+
+    margin-top: 10px;
+    margin-bottom: 9px;
+  }
+
+
+  .nikkah-parents {
+    font-size: 11px;
+  }
+
+
+  .nikkah-with {
+    font-size: 19px;
+
+    margin-top: 13px;
+  }
+
+
+  .nikkah-message-title {
+    font-size: 20px;
+
+    margin-top: 18px;
+  }
+
+
+  .nikkah-message {
+    font-size: 13px;
+  }
+
+
+  .nikkah-bottom-divider {
+    width: 100px;
+  }
+}
+
+
+/* =========================================
+   VERY SHORT PHONES
+========================================= */
+
+@media (max-width: 600px) and (max-height: 700px) {
+
+  .nikkah-inner {
+    aspect-ratio: 620 / 900;
+  }
+
+  .nikkah-arch {
+    padding-top: 6%;
+  }
+
+  .nikkah-bismillah {
+    margin-bottom: 8px;
+  }
+
+  .nikkah-message-title {
+    margin-top: 16px;
+  }
 }

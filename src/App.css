@@ -37,17 +37,13 @@ body {
 
 .hero-page {
   position: relative;
-
   width: 100%;
-  height: 100svh;
+  height: 100dvh;
   min-height: 650px;
-
   overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: #eee7dc;
 }
 
@@ -58,17 +54,20 @@ body {
 
 .hero-background {
   position: absolute;
-
   inset: 0;
 
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
-
-  object-position: center center;
-
   display: block;
+
+  /*
+    COVER keeps the video filling the entire screen.
+    The responsive object-position rules below control
+    which part of the video remains visible.
+  */
+  object-fit: cover;
+  object-position: center center;
 
   z-index: 0;
 }
@@ -80,21 +79,18 @@ body {
 
 .hero-overlay {
   position: absolute;
-
   inset: 0;
 
   width: 100%;
   height: 100%;
 
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.08),
-      rgba(0, 0, 0, 0.12)
-    );
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.08),
+    rgba(0, 0, 0, 0.12)
+  );
 
   z-index: 1;
-
   pointer-events: none;
 }
 
@@ -110,7 +106,6 @@ body {
   bottom: 0;
 
   width: 100%;
-
   height: auto;
 
   display: block;
@@ -118,7 +113,6 @@ body {
   z-index: 3;
 
   pointer-events: none;
-
   user-select: none;
 }
 
@@ -128,7 +122,12 @@ body {
 ========================================================= */
 
 .hero-content {
-  position: relative;
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 
   z-index: 4;
 
@@ -140,6 +139,8 @@ body {
   text-align: center;
 
   color: white;
+
+  box-sizing: border-box;
 }
 
 
@@ -153,11 +154,9 @@ body {
   font-family: "Montserrat", sans-serif;
 
   font-size: 10px;
-
   font-weight: 400;
 
   letter-spacing: 4px;
-
   line-height: 1.5;
 
   color: rgba(255, 255, 255, 0.95);
@@ -185,7 +184,6 @@ body {
   font-size: clamp(58px, 8vw, 105px);
 
   font-weight: 400;
-
   font-style: italic;
 
   line-height: 0.95;
@@ -208,7 +206,6 @@ body {
   font-size: 0.65em;
 
   font-style: normal;
-
   font-weight: 400;
 
   opacity: 0.95;
@@ -255,7 +252,6 @@ body {
 
 .scroll-arrow {
   font-size: 20px;
-
   line-height: 1;
 
   animation: scrollBounce 1.7s ease-in-out infinite;
@@ -274,70 +270,166 @@ body {
 
 
 /* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  .hero-page {
+    height: 100dvh;
+    min-height: 650px;
+  }
+
+  .hero-background {
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hero-content {
+    width: 90%;
+    max-width: 900px;
+  }
+
+  .hero-small {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .hero-names {
+    font-size: clamp(65px, 10vw, 90px);
+  }
+
+  .bottom-floral-overlay {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
    MOBILE HERO
 ========================================================= */
 
 @media (max-width: 600px) {
 
   .hero-page {
-    width: 100vw;
+    position: relative;
 
-    height: 100svh;
-
-    min-height: 100svh;
+    width: 100%;
+    height: 100dvh;
+    min-height: 100dvh;
 
     overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 
-  /* Keep video filling the entire phone */
+  /*
+    IMPORTANT:
+    The video fills the complete phone screen.
+  */
 
   .hero-background {
+    position: absolute;
+
+    inset: 0;
+
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
+    /*
+      Slightly higher framing keeps the important
+      upper architecture and names visible.
+    */
     object-position: center center;
+
+    transform: scale(1.001);
+
+    z-index: 0;
   }
 
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+  }
+
+
+  /*
+    Floral decoration stays at the bottom.
+  */
+
+  .bottom-floral-overlay {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: auto;
+
+    max-width: none;
+
+    z-index: 3;
+
+    pointer-events: none;
+  }
+
+
+  /*
+    Content is positioned independently from
+    the video so the names remain readable.
+  */
 
   .hero-content {
     position: absolute;
 
-    left: 0;
-    right: 0;
+    top: 48%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
 
     width: 100%;
-
     max-width: 100%;
 
-    padding: 0 24px;
+    padding: 0 18px;
 
     box-sizing: border-box;
+
+    z-index: 4;
 
     text-align: center;
   }
 
 
   .hero-small {
-    margin-bottom: 10px;
+    margin: 0 auto 12px;
 
-    font-size: 7px;
+    max-width: 330px;
 
-    letter-spacing: 2.2px;
+    font-size: clamp(6px, 1.8vw, 8px);
 
-    line-height: 1.5;
+    letter-spacing: 2px;
 
-    white-space: nowrap;
+    line-height: 1.6;
+
+    white-space: normal;
+
+    text-align: center;
   }
 
 
   /*
-     IMPORTANT:
-     Keep each name on its own line on mobile.
-     This prevents "Adeena" from getting squeezed
-     or clipped on narrow phones.
+    Names are stacked on mobile.
+    This is important because keeping them
+    side-by-side causes Adeena to collide
+    with the background subject.
   */
 
   .hero-names {
@@ -350,15 +442,13 @@ body {
 
     width: 100%;
 
-    max-width: 100%;
-
     margin: 0;
 
     gap: 0;
 
-    font-size: clamp(48px, 15vw, 72px);
+    font-size: clamp(48px, 15vw, 70px);
 
-    line-height: 0.88;
+    line-height: 0.82;
 
     white-space: normal;
 
@@ -370,7 +460,6 @@ body {
     display: block;
 
     width: 100%;
-
     max-width: 100%;
 
     text-align: center;
@@ -379,21 +468,31 @@ body {
   }
 
 
+  /*
+    Keep the ampersand small and separated.
+  */
+
   .hero-ampersand {
     width: auto !important;
 
-    margin: 5px 0;
+    margin: 8px 0;
 
-    font-size: 0.52em;
+    font-size: 0.48em;
 
     line-height: 0.8;
   }
 
 
-  .scroll-indicator {
-    bottom: 4.5%;
-  }
+  /*
+    Scroll indicator stays above the floral
+    decoration.
+  */
 
+  .scroll-indicator {
+    bottom: 4%;
+
+    z-index: 6;
+  }
 
   .scroll-indicator span {
     font-size: 7px;
@@ -401,20 +500,60 @@ body {
     letter-spacing: 2.5px;
   }
 
-
   .scroll-arrow {
     font-size: 18px;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .hero-content {
+    top: 47%;
+
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  .hero-small {
+    max-width: 290px;
+
+    font-size: 6.5px;
+
+    letter-spacing: 1.7px;
+
+    line-height: 1.55;
+  }
+
+
+  .hero-names {
+    font-size: clamp(44px, 14.5vw, 58px);
+
+    line-height: 0.82;
+  }
+
+
+  .hero-ampersand {
+    margin: 7px 0;
+
+    font-size: 0.48em;
   }
 
 
   .bottom-floral-overlay {
-    width: 100%;
+    width: 105%;
 
-    max-width: none;
+    left: -2.5%;
+  }
 
-    bottom: 0;
 
-    left: 0;
+  .scroll-indicator {
+    bottom: 3.5%;
   }
 }
 
@@ -423,60 +562,89 @@ body {
    VERY SMALL PHONES
 ========================================================= */
 
-@media (max-width: 400px) {
+@media (max-width: 360px) {
 
   .hero-content {
-    padding-left: 28px;
-    padding-right: 28px;
+    top: 46%;
+
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
 
   .hero-small {
-    font-size: 6.5px;
+    max-width: 270px;
 
-    letter-spacing: 1.8px;
+    font-size: 6px;
+
+    letter-spacing: 1.4px;
   }
 
 
   .hero-names {
-    font-size: 50px;
+    font-size: 44px;
 
-    line-height: 0.88;
+    line-height: 0.82;
   }
 
 
   .hero-ampersand {
-    margin: 4px 0;
+    margin: 6px 0;
 
-    font-size: 0.5em;
+    font-size: 0.46em;
+  }
+
+
+  .bottom-floral-overlay {
+    width: 108%;
+
+    left: -4%;
   }
 }
 
 
 /* =========================================================
-   EXTRA SMALL PHONES
+   LANDSCAPE PHONES
 ========================================================= */
 
-@media (max-width: 360px) {
+@media (max-width: 900px) and (orientation: landscape) {
+
+  .hero-page {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
 
   .hero-content {
-    padding-left: 22px;
-    padding-right: 22px;
+    top: 50%;
   }
-
 
   .hero-small {
-    font-size: 6px;
-
-    letter-spacing: 1.5px;
+    font-size: 7px;
+    margin-bottom: 6px;
   }
-
 
   .hero-names {
-    font-size: 46px;
+    flex-direction: row;
+
+    font-size: clamp(42px, 8vw, 68px);
+
+    line-height: 0.9;
+
+    gap: 12px;
+  }
+
+  .hero-ampersand {
+    margin: 0;
+  }
+
+  .scroll-indicator {
+    bottom: 2%;
+  }
+
+  .bottom-floral-overlay {
+    width: 100%;
   }
 }
-
 
 /* =========================================================
    DESKTOP
@@ -1007,5 +1175,283 @@ body {
 
   .location-flower {
     width: 110px;
+  }
+}
+
+/* =========================================================
+   FINAL MOBILE HERO FIX
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .hero-page {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Background video */
+  .hero-background {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+
+    z-index: 0;
+  }
+
+  /* Dark/soft overlay */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  /* Main text container */
+  .hero-content {
+    position: absolute;
+
+    top: 48%;
+    left: 50%;
+
+    width: calc(100% - 30px);
+    max-width: 360px;
+
+    transform: translate(-50%, -50%);
+
+    padding: 0;
+
+    text-align: center;
+
+    z-index: 4;
+  }
+
+  /* Invitation line */
+  .hero-small {
+    margin: 0 0 18px;
+
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 7px;
+    line-height: 1.6;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+  }
+
+  /* Names */
+  .hero-names {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    gap: 0;
+
+    font-size: clamp(48px, 15vw, 70px);
+
+    line-height: 0.92;
+
+    text-align: center;
+
+    white-space: normal;
+  }
+
+  .hero-names span {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    /*
+      Small shadow helps the names remain readable
+      when the background video becomes bright.
+    */
+    text-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.25),
+      0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Ampersand */
+  .hero-names .hero-ampersand {
+    width: auto !important;
+
+    margin: 10px 0;
+
+    font-size: 0.42em;
+
+    line-height: 1;
+
+    text-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Bottom flowers */
+  .bottom-floral-overlay {
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 105%;
+    max-width: none;
+
+    height: auto;
+
+    transform: translateX(-50%);
+
+    z-index: 3;
+
+    pointer-events: none;
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+
+    left: 50%;
+    bottom: 5%;
+
+    transform: translateX(-50%);
+
+    z-index: 6;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 5px;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.95);
+
+    pointer-events: none;
+  }
+
+  .scroll-indicator span {
+    font-size: 7px;
+
+    letter-spacing: 2.5px;
+
+    white-space: nowrap;
+  }
+
+  .scroll-arrow {
+    font-size: 18px;
+    line-height: 1;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .hero-content {
+    top: 47%;
+
+    width: calc(100% - 24px);
+  }
+
+  .hero-small {
+    max-width: 285px;
+
+    font-size: 6.5px;
+
+    letter-spacing: 1.7px;
+
+    margin-bottom: 17px;
+  }
+
+  .hero-names {
+    font-size: clamp(44px, 14.5vw, 58px);
+
+    line-height: 0.92;
+  }
+
+  .hero-names .hero-ampersand {
+    margin: 8px 0;
+
+    font-size: 0.43em;
+  }
+
+  .bottom-floral-overlay {
+    width: 108%;
+  }
+
+  .scroll-indicator {
+    bottom: 4%;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .hero-content {
+    top: 46.5%;
+
+    width: calc(100% - 20px);
+  }
+
+  .hero-small {
+    max-width: 265px;
+
+    font-size: 6px;
+
+    letter-spacing: 1.4px;
+
+    margin-bottom: 15px;
+  }
+
+  .hero-names {
+    font-size: 44px;
+
+    line-height: 0.92;
+  }
+
+  .hero-names .hero-ampersand {
+    margin: 7px 0;
+
+    font-size: 0.42em;
+  }
+
+  .bottom-floral-overlay {
+    width: 110%;
+  }
+
+  .scroll-indicator {
+    bottom: 3.5%;
   }
 }
