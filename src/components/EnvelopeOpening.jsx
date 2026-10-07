@@ -10,7 +10,6 @@ export default function EnvelopeOpening({ onOpen }) {
 
     setStarted(true);
 
-    // Give React a moment to render the video
     setTimeout(async () => {
       try {
         await videoRef.current?.play();
@@ -33,8 +32,10 @@ export default function EnvelopeOpening({ onOpen }) {
       }`}
       onClick={!started ? handleOpen : undefined}
     >
+
       {!started && (
         <div className="envelope-stage">
+
           <img
             src="/weddings/opening/envelope.png"
             alt="Wedding invitation envelope"
@@ -45,6 +46,7 @@ export default function EnvelopeOpening({ onOpen }) {
             <span className="tap-dot"></span>
             <p>Tap to open</p>
           </div>
+
         </div>
       )}
 
@@ -59,6 +61,7 @@ export default function EnvelopeOpening({ onOpen }) {
           onEnded={handleVideoEnd}
         />
       )}
+
     </section>
   );
 }

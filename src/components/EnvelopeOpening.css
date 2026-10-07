@@ -1,82 +1,173 @@
+/* =========================================================
+   ENVELOPE OPENING SCREEN
+   ========================================================= */
+
 .envelope-screen {
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100dvh;
+  min-height: 100vh;
   overflow: hidden;
-  background: #eee7dc;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background: #eee7dc;
   z-index: 9999;
+
   cursor: pointer;
   user-select: none;
 }
 
+
+/* =========================================================
+   CLOSED ENVELOPE
+   ========================================================= */
+
 .envelope-stage {
   position: relative;
+
   width: 100%;
   height: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  overflow: hidden;
 }
 
-/* Closed envelope */
+
+/*
+   The envelope image itself.
+
+   Desktop:
+   The image becomes large enough to cover the screen.
+
+   Mobile:
+   It scales down naturally while keeping the correct
+   portrait proportions.
+*/
 
 .envelope-image {
-  width: min(90vw, 520px);
-  height: min(90vh, 900px);
-  object-fit: contain;
   display: block;
+
+  width: auto;
+  height: 100%;
+
+  max-width: none;
+
+  object-fit: contain;
+
+  flex-shrink: 0;
 }
 
-/* Tap to open */
+
+/* =========================================================
+   TAP TO OPEN
+   ========================================================= */
 
 .tap-message {
   position: absolute;
-  bottom: 8%;
+
   left: 50%;
+  bottom: clamp(35px, 7vh, 80px);
+
   transform: translateX(-50%);
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 10px;
+
   color: #806d55;
+
   pointer-events: none;
+
+  z-index: 5;
 }
+
 
 .tap-message p {
   margin: 0;
+
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 13px;
-  letter-spacing: 3px;
+
+  font-size: clamp(10px, 0.8vw, 14px);
+
+  letter-spacing: clamp(2px, 0.25vw, 4px);
+
   text-transform: uppercase;
+
+  white-space: nowrap;
 }
 
+
 .tap-dot {
-  width: 7px;
-  height: 7px;
+  width: clamp(6px, 0.5vw, 8px);
+  height: clamp(6px, 0.5vw, 8px);
+
   border-radius: 50%;
+
   background: #b58b49;
+
   box-shadow:
     0 0 8px rgba(181, 139, 73, 0.8),
     0 0 20px rgba(181, 139, 73, 0.5);
+
   animation: pulse 1.6s ease-in-out infinite;
 }
 
-/* Opening video */
+
+/* =========================================================
+   OPENING VIDEO
+   ========================================================= */
 
 .opening-video {
   position: fixed;
+
   inset: 0;
+
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background: #eee7dc;
+
   display: block;
+
+  object-fit: cover;
+
+  background: #eee7dc;
+
   z-index: 10000;
+
+  opacity: 1;
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
 }
+
+
+/* =========================================================
+   VIDEO END TRANSITION
+   ========================================================= */
+
+.envelope-screen.finishing .opening-video {
+  opacity: 0;
+
+  transform: scale(1.02);
+}
+
+.envelope-screen.finishing {
+  background: #f5eee5;
+}
+
+
+/* =========================================================
+   TAP ANIMATION
+   ========================================================= */
 
 @keyframes pulse {
   0%,
@@ -91,46 +182,155 @@
   }
 }
 
-/* Mobile */
 
-@media (max-width: 600px) {
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1400px) {
   .envelope-image {
-    width: 94vw;
-    height: 88vh;
+    height: 105vh;
   }
 
   .tap-message {
-    bottom: 6%;
+    bottom: 6vh;
+  }
+}
+
+
+/* =========================================================
+   LAPTOP / NORMAL DESKTOP
+   ========================================================= */
+
+@media (min-width: 901px) and (max-width: 1399px) {
+  .envelope-image {
+    height: 100vh;
+  }
+
+  .tap-message {
+    bottom: 6vh;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .envelope-image {
+    height: 100vh;
+    width: auto;
+  }
+
+  .tap-message {
+    bottom: 5vh;
   }
 
   .tap-message p {
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 2.5px;
   }
 }
 
-/* =========================================
-   OPENING VIDEO TRANSITION
-========================================= */
 
-.envelope-screen {
-  position: relative;
-  width: 100%;
-  height: 100svh;
-  overflow: hidden;
-  background: #f5eee5;
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .envelope-screen {
+    height: 100dvh;
+    min-height: 100vh;
+  }
+
+  .envelope-image {
+    /*
+      On phones the screen is much narrower,
+      so use the full height while preserving
+      the envelope's portrait proportions.
+    */
+    height: 100dvh;
+    width: auto;
+
+    max-width: none;
+  }
+
+  .tap-message {
+    bottom: 6vh;
+  }
+
+  .tap-message p {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+  }
+
+  .tap-dot {
+    width: 6px;
+    height: 6px;
+  }
 }
 
 
-/* Video starts normally */
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .envelope-image {
+    height: 100dvh;
+  }
+
+  .tap-message {
+    bottom: 5vh;
+  }
+
+  .tap-message p {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+}
+
+
+/* =========================================================
+   SHORT SCREENS
+   ========================================================= */
+
+@media (max-height: 650px) {
+  .envelope-image {
+    height: 110vh;
+  }
+
+  .tap-message {
+    bottom: 25px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE OPENING VIDEO
+   ========================================================= */
 
 .opening-video {
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  inset: 0;
 
-  object-fit: cover;
+  width: 100%;
+  height: 100dvh;
 
   display: block;
+
+  /*
+    Show the COMPLETE video.
+    Nothing gets cropped.
+  */
+  object-fit: contain;
+
+  /*
+    Match the cream background around the video.
+  */
+  background: #eee7dc;
+
+  z-index: 10000;
 
   opacity: 1;
 
@@ -140,38 +340,67 @@
 }
 
 
-/*
-  When the video finishes,
-  gently fade it away.
-*/
-
-.envelope-screen.finishing .opening-video {
-  opacity: 0;
-
-  transform: scale(1.025);
-}
-
-
-/*
-  Also fade the entire opening screen
-  slightly into the cream invitation background.
-*/
-
-.envelope-screen.finishing {
-  background: #f5eee5;
-}
-
-/* =========================================
+/* =========================================================
    VIDEO END FADE
-========================================= */
-
-.opening-video {
-  transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
-}
+   ========================================================= */
 
 .envelope-screen.finishing .opening-video {
   opacity: 0;
   transform: scale(1.02);
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 901px) {
+  .opening-video {
+    width: 100vw;
+    height: 100dvh;
+
+    object-fit: contain;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .opening-video {
+    width: 100vw;
+    height: 100dvh;
+
+    object-fit: contain;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .opening-video {
+    width: 100vw;
+    height: 100dvh;
+
+    object-fit: contain;
+  }
+}
+
+
+/* =========================================================
+   VERY SHORT SCREENS
+   ========================================================= */
+
+@media (max-height: 650px) {
+  .opening-video {
+    width: 100vw;
+    height: 100dvh;
+
+    object-fit: contain;
+  }
 }

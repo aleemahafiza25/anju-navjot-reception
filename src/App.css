@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400&display=swap");
 
-
 /* ================================
    BASIC RESET
 ================================ */
@@ -18,8 +17,13 @@ body,
   min-height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #f5eee5;
+  overflow-x: hidden;
 }
 
 .app {
@@ -57,28 +61,111 @@ body {
 }
 
 
-
-
 /* ================================
    BACKGROUND VIDEO
 ================================ */
 
+/* =================================
+   HERO BACKGROUND VIDEO
+================================= */
+
 .hero-background {
   position: absolute;
-
-  top: 0;
-  left: 0;
+  inset: 0;
 
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
-
-  object-position: center center;
-
   display: block;
 
+  object-fit: contain;
+  object-position: center center;
+
+  background: #e8d8c4;
+
   z-index: 0;
+  pointer-events: none;
+}
+
+
+/* ================================
+   MOBILE VIDEO
+================================ */
+
+@media (max-width: 600px) {
+  .hero-background {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+
+/* ================================
+   SMALL PHONES
+================================ */
+
+@media (max-width: 380px) {
+  .hero-background {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+
+/* ================================
+   TALL PHONES
+================================ */
+
+@media (max-width: 600px) and (min-height: 750px) {
+  .hero-background {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+
+/* ================================
+   TABLETS
+================================ */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .hero-background {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+
+/* ================================
+   DESKTOP
+================================ */
+
+@media (min-width: 1025px) {
+  .hero-background {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+
+/* ================================
+   VERY WIDE DESKTOP
+================================ */
+
+@media (min-width: 1600px) {
+  .hero-background {
+    object-fit: cover;
+    object-position: center center;
+  }
 }
 
 
@@ -105,6 +192,7 @@ body {
     );
 }
 
+
 /* ================================
    HERO → SCRATCH SOFT FADE
 ================================ */
@@ -128,11 +216,12 @@ body {
     to bottom,
     rgba(247, 236, 223, 0) 0%,
     rgba(247, 236, 223, 0.08) 25%,
-    rgba(247, 236, 223, 0.30) 55%,
+    rgba(247, 236, 223, 0.3) 55%,
     rgba(247, 236, 223, 0.72) 82%,
     #f7ecdf 100%
   );
 }
+
 
 /* ================================
    BOTTOM FLORAL DECORATION
@@ -158,7 +247,9 @@ body {
 }
 
 
-/* Gentle natural movement */
+/* ================================
+   GENTLE FLORAL MOVEMENT
+================================ */
 
 @keyframes floralSway {
   0%,
@@ -172,7 +263,6 @@ body {
 }
 
 
-
 /* ================================
    HERO CONTENT
 ================================ */
@@ -184,6 +274,7 @@ body {
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
 
   justify-content: flex-start;
@@ -231,6 +322,7 @@ body {
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
 
   font-family: "Cormorant Garamond", serif;
@@ -248,12 +340,12 @@ body {
   color: #725638;
 
   text-shadow:
-    0 2px 5px rgba(255, 255, 255, 0.30);
+    0 2px 5px rgba(255, 255, 255, 0.3);
 }
 
 
 /* ================================
-   AMPERSAND
+   NAME SPANS
 ================================ */
 
 .hero-content h1 span {
@@ -263,7 +355,7 @@ body {
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 0.70em;
+  font-size: 1em;
 
   font-weight: 500;
 
@@ -278,10 +370,18 @@ body {
 
 
 /* ================================
-   DATE
+   AMPERSAND
 ================================ */
 
+.hero-content h1 .hero-ampersand {
+  font-size: 0.7em;
 
+  margin: 5px 0;
+
+  font-weight: 500;
+
+  font-style: italic;
+}
 
 
 /* ================================
@@ -292,7 +392,6 @@ body {
   position: absolute;
 
   left: 50%;
-
   bottom: 25px;
 
   transform: translateX(-50%);
@@ -376,7 +475,6 @@ body {
 ================================ */
 
 @media (max-width: 380px) {
-
   .hero-content {
     padding-left: 18px;
     padding-right: 18px;
@@ -392,7 +490,9 @@ body {
     letter-spacing: 2.2px;
   }
 
-
+  .scroll-indicator {
+    bottom: 20px;
+  }
 }
 
 
@@ -401,9 +501,8 @@ body {
 ================================ */
 
 @media (min-height: 800px) and (max-width: 600px) {
-
   .hero-background {
-    object-position: center 43%;
+    object-position: center center;
   }
 
   .hero-content {
@@ -417,7 +516,6 @@ body {
 ================================ */
 
 @media (min-width: 601px) {
-
   .hero-page {
     height: 100vh;
     min-height: 700px;
@@ -438,14 +536,13 @@ body {
   .hero-small {
     font-size: 13px;
   }
-
-
 }
 
-/* =========================================
+
+/* ================================
    PAGE 2
    ELEGANT INVITATION CARD
-========================================= */
+================================ */
 
 .details-page {
   position: relative;
@@ -454,6 +551,7 @@ body {
   min-height: 100svh;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -471,9 +569,9 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    OUTER FRAME
-========================================= */
+================================ */
 
 .details-page::before {
   content: "";
@@ -488,9 +586,9 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    INNER FRAME
-========================================= */
+================================ */
 
 .details-page::after {
   content: "";
@@ -505,9 +603,9 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    CORNER ORNAMENTS
-========================================= */
+================================ */
 
 .details-corner {
   position: absolute;
@@ -556,9 +654,9 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    CONTENT
-========================================= */
+================================ */
 
 .details-content {
   position: relative;
@@ -576,9 +674,9 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    SMALL INTRO
-========================================= */
+================================ */
 
 .details-intro {
   margin: 0 0 22px;
@@ -597,9 +695,9 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    MAIN HEADING
-========================================= */
+================================ */
 
 .details-content h2 {
   margin: 0;
@@ -618,9 +716,9 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    SCRIPT TEXT
-========================================= */
+================================ */
 
 .details-script {
   margin-top: 2px;
@@ -639,9 +737,9 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    FLORAL DIVIDER
-========================================= */
+================================ */
 
 .floral-divider {
   display: flex;
@@ -690,9 +788,9 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    DESCRIPTION
-========================================= */
+================================ */
 
 .details-description {
   margin: 0 auto;
@@ -711,9 +809,9 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    NAMES
-========================================= */
+================================ */
 
 .details-names {
   margin-top: 32px;
@@ -746,9 +844,9 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    DATE
-========================================= */
+================================ */
 
 .details-date-line {
   display: flex;
@@ -787,12 +885,11 @@ body {
 }
 
 
-/* =========================================
-   DESKTOP
-========================================= */
+/* ================================
+   DESKTOP DETAILS
+================================ */
 
 @media (min-width: 601px) {
-
   .details-page {
     min-height: 100vh;
 
@@ -826,9 +923,10 @@ body {
   }
 }
 
-/* =========================================
+
+/* ================================
    FIRST PAGE FADE IN
-========================================= */
+================================ */
 
 .invitation {
   animation: invitationFadeIn 1.8s ease forwards;
