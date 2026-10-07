@@ -941,3 +941,18 @@ body {
     opacity: 1;
   }
 }
+
+@media (max-width: 600px) {
+
+  .hero-content {
+    transform: translateY(-9vh);
+  }
+
+  .hero-names {
+    line-height: 0.85;
+  }
+
+  .hero-ampersand {
+    margin: 8px 0;
+  }
+}
