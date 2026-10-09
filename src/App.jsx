@@ -6,17 +6,19 @@ import EnvelopeOpening from "./components/EnvelopeOpening";
 import "./App.css";
 
 import NikkahSection from "./components/NikkahSection";
-import VerseSection from "./components/VerseSection";
-import WeddingTimeline from "./components/WeddingTimeline";
-import CountdownSection from "./components/CountdownSection";
+import ClosingSection from "./components/ClosingSection";
+// import VerseSection from "./components/VerseSection";
+// import WeddingTimeline from "./components/WeddingTimeline";
+// import CountdownSection from "./components/CountdownSection";
 import LocationSection from "./components/LocationSection";
-import RSVPSection from "./components/RSVPSection";
+// import RSVPSection from "./components/RSVPSection";
 
 function App() {
   const [opened, setOpened] = useState(false);
   const [musicPlaying, setMusicPlaying] = useState(false);
 
   const audioRef = useRef(null);
+  const heroVideoRef = useRef(null);
 
   /*
     Start background music after the invitation opens.
@@ -129,15 +131,20 @@ const handleOpen = () => {
 
           <section className="hero-page">
 
-            <video
-              className="hero-background"
-              src="/weddings/invitation/hero.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-            />
+          <video
+            ref={heroVideoRef}
+            className="hero-background"
+            src="/weddings/invitation/hero.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            onLoadedMetadata={(e) => {
+              e.currentTarget.playbackRate = 0.30;
+              e.currentTarget.volume = 1;
+            }}
+          />
 
             <div className="hero-overlay"></div>
 
@@ -147,20 +154,38 @@ const handleOpen = () => {
               alt=""
             />
 
-            <div className="hero-content">
+<div className="hero-content">
 
+  <p className="hero-welcome">
+    You are Invited to the
+  </p>
 
-              <h1 className="hero-names">
-                <span>Daanish</span>
+  <h1 className="hero-ceremony">
+    Reception Ceremony
+  </h1>
 
-                <span className="hero-ampersand">
-                  &amp;
-                </span>
+  <div className="hero-of">
+    <span></span>
+    <p>of</p>
+    <span></span>
+  </div>
 
-                <span>Adeena</span>
-              </h1>
+  <div className="hero-names">
+    <span className="hero-name-first">
+      Navjot
+    </span>
 
-            </div>
+    <span className="hero-ampersand">
+      &amp;
+    </span>
+
+    <span className="hero-name-second">
+      Anju
+    </span>
+  </div>
+
+</div>
+
 
             <div className="scroll-indicator">
               <span>Scroll down</span>
@@ -181,15 +206,16 @@ const handleOpen = () => {
 
           <NikkahSection />
 
-          <VerseSection />
+          {/* <VerseSection /> */}
 
-          <WeddingTimeline />
+          {/* <WeddingTimeline /> */}
 
-          <CountdownSection />
+          {/* <CountdownSection /> */}
 
           <LocationSection />
+          <ClosingSection />
 
-          <RSVPSection />
+          {/* <RSVPSection /> */}
 
 
           {/* =========================
@@ -248,9 +274,9 @@ const handleOpen = () => {
               </p>
 
               <div className="details-names">
-                Daanish
+                Navjot
                 <span>&amp;</span>
-                Adeena
+                Anju
               </div>
 
               <div className="details-date-line">
@@ -258,7 +284,7 @@ const handleOpen = () => {
                 <span></span>
 
                 <p>
-                  18 January 2027
+                  25 November 2026
                 </p>
 
                 <span></span>

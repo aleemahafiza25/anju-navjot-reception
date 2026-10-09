@@ -620,3 +620,96 @@
     margin-top: 16px;
   }
 }
+
+
+/* ===== KEEP INVITATION TEXT INSIDE THE FRAME ===== */
+
+.nikkah-section {
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.nikkah-inner {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+.nikkah-arch {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.nikkah-arch-inner {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding-left: 4%;
+  padding-right: 4%;
+  text-align: center;
+}
+
+/* Keep long family names within the inner frame */
+
+.nikkah-parents {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: clamp(11px, 2.8vw, 17px);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+/* Keep the main invitation text centered */
+
+.nikkah-intro,
+.nikkah-relation,
+.nikkah-with,
+.nikkah-message,
+.nikkah-message-title,
+.nikkah-name {
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.nikkah-name {
+  font-size: clamp(48px, 12vw, 76px);
+  line-height: 1.05;
+}
+
+.nikkah-message {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: clamp(15px, 3.8vw, 21px);
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .nikkah-inner {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .nikkah-arch-inner {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .nikkah-parents {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+}
+

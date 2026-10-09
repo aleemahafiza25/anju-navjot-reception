@@ -47,9 +47,10 @@ export default function EnvelopeOpening({ onOpen }) {
       src="/weddings/opening/opening.mp4"
       playsInline
       preload="auto"
-      muted
       onEnded={handleVideoEnd}
+      
     />
+
 
     {!started && (
       <div className="tap-message">
@@ -58,5 +59,7 @@ export default function EnvelopeOpening({ onOpen }) {
       </div>
     )}
   </section>
+
+  
 );
 }

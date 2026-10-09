@@ -421,7 +421,7 @@ body {
   /*
     Names are stacked on mobile.
     This is important because keeping them
-    side-by-side causes Adeena to collide
+    side-by-side causes Anju to collide
     with the background subject.
   */
 
@@ -1308,28 +1308,36 @@ body {
   }
 
   /* Scroll indicator */
-  .scroll-indicator {
-    position: absolute;
+ 
+.hero-page .scroll-indicator {
+  position: absolute !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 35px !important;
 
-    left: 50%;
-    bottom: 5%;
+  width: max-content !important;
+  margin: 0 !important;
 
-    transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    z-index: 6;
+  text-align: center !important;
+  transform: translateX(-50%) !important;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  z-index: 10;
+}
 
-    gap: 5px;
+.hero-page .scroll-indicator span,
+.hero-page .scroll-indicator .scroll-arrow {
+  width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: center !important;
+  align-self: center;
+}
 
-    text-align: center;
-
-    color: rgba(255, 255, 255, 0.95);
-
-    pointer-events: none;
-  }
 
   .scroll-indicator span {
     font-size: 7px;
@@ -1909,3 +1917,405 @@ body {
   }
 }
 
+/* Elegant invitation heading */
+.hero-invitation-heading {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(90%, 700px);
+  margin: 0 auto 12px;
+  text-align: center;
+  z-index: 2;
+  animation: headingFadeIn 1.5s ease both;
+}
+
+/* Fine gold line */
+.hero-heading-line {
+  display: block;
+  width: 65%;
+  height: 1px;
+  margin-bottom: 18px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(194, 145, 75, 0.9),
+    transparent
+  );
+}
+
+/* Main invitation text */
+.hero-invitation-heading p {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(17px, 2.4vw, 27px);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+ color: #70451F;
+
+text-shadow:
+  0 1px 2px rgba(255, 245, 225, 0.45);
+}
+
+/* Small ornamental gold accent */
+.hero-heading-ornament {
+  margin-top: 12px;
+  color: #e3bd79;
+  font-size: 17px;
+  line-height: 1;
+  text-shadow: 0 2px 5px rgba(55, 31, 10, 0.35);
+}
+
+/* Gentle entrance */
+@keyframes headingFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .hero-invitation-heading {
+    width: 92%;
+    margin-bottom: 8px;
+  }
+
+  .hero-heading-line {
+    width: 55%;
+    margin-bottom: 12px;
+  }
+
+  .hero-invitation-heading p {
+    font-size: clamp(16px, 4.2vw, 21px);
+    line-height: 1.45;
+  }
+
+  .hero-heading-ornament {
+    margin-top: 8px;
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-invitation-heading {
+    animation: none;
+  }
+}
+
+.hero-invitation-heading {
+  margin: 0 auto 24px;
+}
+
+.hero-heading-ornament {
+  color: #C99745;
+  text-shadow: 0 2px 5px rgba(55, 31, 10, 0.4);
+}
+
+.hero-invitation-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto 12px;
+  text-align: center;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.hero-invitation-heading p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.hero-heading-text {
+  display: inline;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #F4D59A;
+  background: rgba(0, 0, 0, 0.55);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(17px, 2.4vw, 27px);
+  font-weight: 600;
+}
+
+.hero-heading-ornament {
+  color: #E3BD79;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+
+/* ===== ANJU & NAVJOT HERO DESIGN ===== */
+
+.hero-content {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 94%;
+  max-width: 900px;
+  padding: 0 10px;
+  text-align: center;
+  color: #806343;
+  z-index: 2;
+}
+
+.hero-welcome {
+  margin: 0 0 2px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(20px, 5vw, 34px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #806343;
+}
+
+.hero-ceremony {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(30px, 7vw, 49px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.12;
+  color: #806343;
+}
+
+.hero-of {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  width: min(280px, 78%);
+  margin: 18px auto 12px;
+}
+
+.hero-of span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #b79a68
+  );
+}
+
+.hero-of span:last-child {
+  background: linear-gradient(
+    to left,
+    transparent,
+    #b79a68
+  );
+}
+
+.hero-of p {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #806343;
+}
+
+.hero-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(60px, 14vw, 100px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.9;
+  color: #806343;
+  text-align: center;
+  text-shadow: 0 3px 9px rgba(50, 30, 15, 0.18);
+}
+
+.hero-name-first,
+.hero-name-second {
+  display: block;
+}
+
+.hero-ampersand {
+  margin: 7px 0 9px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.43em;
+  font-style: italic;
+  line-height: 1;
+  color: #a3875b;
+}
+
+@media (max-width: 600px) {
+  .hero-content {
+    top: 46%;
+    width: 96%;
+  }
+
+  .hero-welcome {
+    font-size: clamp(19px, 5.2vw, 26px);
+  }
+
+  .hero-ceremony {
+    font-size: clamp(28px, 7.2vw, 38px);
+  }
+
+  .hero-of {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 72%;
+  }
+
+  .hero-names {
+    font-size: clamp(57px, 15vw, 78px);
+    line-height: 0.88;
+  }
+}
+
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(35, 23, 15, 0.30) 0%,
+    rgba(35, 23, 15, 0.20) 45%,
+    rgba(35, 23, 15, 0.35) 100%
+  );
+  z-index: 1;
+}
+
+
+
+/* Improve hero text contrast */
+
+.hero-content {
+  z-index: 3;
+}
+
+.hero-welcome,
+.hero-ceremony,
+.hero-of p {
+  color: #fff3d8;
+  text-shadow:
+    0 2px 5px rgba(35, 20, 10, 0.85),
+    0 0 14px rgba(35, 20, 10, 0.25);
+}
+
+.hero-names {
+  color: #fff0d0;
+  text-shadow:
+    0 3px 7px rgba(25, 15, 8, 0.9),
+    0 0 16px rgba(25, 15, 8, 0.35);
+}
+
+.hero-ampersand {
+  color: #f1d49a;
+  text-shadow:
+    0 2px 5px rgba(25, 15, 8, 0.9);
+}
+
+.hero-of span {
+  background: linear-gradient(
+    to right,
+    transparent,
+    #f1d49a
+  );
+}
+
+.hero-of span:last-child {
+  background: linear-gradient(
+    to left,
+    transparent,
+    #f1d49a
+  );
+}
+
+
+/* ===== CINEMATIC HERO TEXT REVEAL ===== */
+
+.hero-welcome,
+.hero-ceremony,
+.hero-of,
+.hero-name-first,
+.hero-ampersand,
+.hero-name-second,
+.scroll-indicator {
+  opacity: 0;
+  animation: heroTextReveal 1.2s ease-out forwards;
+}
+
+/* Reveal each line one after another */
+
+.hero-welcome {
+  animation-delay: 0.3s;
+}
+
+.hero-ceremony {
+  animation-delay: 0.9s;
+}
+
+.hero-of {
+  animation-delay: 1.5s;
+}
+
+.hero-name-first {
+  animation-delay: 2.1s;
+}
+
+.hero-ampersand {
+  animation-delay: 2.7s;
+}
+
+.hero-name-second {
+  animation-delay: 3.2s;
+}
+
+.scroll-indicator {
+  animation-delay: 3.8s;
+}
+
+@keyframes heroTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-welcome,
+  .hero-ceremony,
+  .hero-of,
+  .hero-name-first,
+  .hero-ampersand,
+  .hero-name-second,
+  .scroll-indicator {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+
+.hero-ampersand{
+  color: white;
+}

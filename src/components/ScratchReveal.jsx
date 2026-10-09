@@ -280,19 +280,19 @@ export default function ScratchReveal() {
         <div className="date-cards">
 
           <ScratchCard
-            value="18"
+            value="25"
             label="DAY"
             type="day"
           />
 
           <ScratchCard
-            value="JAN"
+            value="November"
             label="MONTH"
             type="month"
           />
 
           <ScratchCard
-            value="2027"
+            value="2026"
             label="YEAR"
             type="year"
             onReveal={() =>

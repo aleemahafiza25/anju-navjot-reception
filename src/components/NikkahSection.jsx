@@ -10,21 +10,14 @@ export default function NikkahSection() {
 
           <div className="nikkah-arch-inner">
 
-            {/* Bismillah */}
-            <div className="nikkah-bismillah">
-              ﷽
-            </div>
-
             {/* Invitation heading */}
-            <p className="nikkah-intro">
-              YOU ARE INVITED TO THE
-              <br />
-              NIKKAH CEREMONY OF
-            </p>
+
+
+
 
             {/* Groom */}
             <h2 className="nikkah-name">
-              Daanish
+              Navjot
             </h2>
 
             {/* Divider */}
@@ -36,11 +29,11 @@ export default function NikkahSection() {
 
             {/* Groom parents */}
             <p className="nikkah-relation">
-              SON OF
+              Grand S/o
             </p>
 
             <p className="nikkah-parents">
-              MR &amp; MRS CH. HUSSAINI
+              Late Sd MR Tarsem Kaur &amp; Late Sdn MRS Sucha Singh
             </p>
 
             {/* With */}
@@ -50,7 +43,7 @@ export default function NikkahSection() {
 
             {/* Bride */}
             <h2 className="nikkah-name nikkah-bride">
-              Adeena
+              Anju
             </h2>
 
             {/* Bride parents */}
@@ -59,7 +52,7 @@ export default function NikkahSection() {
             </p>
 
             <p className="nikkah-parents">
-              MR &amp; MRS CH. FAROOQI
+              MR Umrao Singh Bhandari &amp; MRS Chaita D.Bhandari
             </p>
 
             {/* Message */}
@@ -70,7 +63,7 @@ export default function NikkahSection() {
             <p className="nikkah-message">
               Join us for an evening of love,
               <br />
-              laughter, duas, and
+              laughter, and
               <br />
               unforgettable memories as
               <br />
