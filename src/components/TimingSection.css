@@ -1,0 +1,105 @@
+.timing-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: 55px 22px 60px;
+  box-sizing: border-box;
+  text-align: center;
+
+  background: #fcf5ed;
+  color: #a78348;
+}
+
+.timing-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin: 0 auto 22px;
+}
+
+.timing-ornament span:not(.timing-diamond) {
+  width: 48px;
+  height: 1px;
+  background: #c7a66e;
+}
+
+.timing-diamond {
+  color: #b38d4d;
+  font-size: 12px;
+}
+
+.timing-eyebrow {
+  margin: 0 0 5px;
+  color: #ad9473;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  line-height: 1.8;
+}
+
+.timing-heading {
+  margin: 0 0 18px;
+  color: #aa874c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(38px, 6vw, 48px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.timing-clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin: 0 auto 14px;
+}
+
+.timing-clock-icon {
+  color: #bd9a5b;
+  font-size: 29px;
+  line-height: 1;
+}
+
+.timing-clock p {
+  margin: 0;
+  color: #987744;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(25px, 4vw, 31px);
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.timing-note {
+  max-width: 310px;
+  margin: 0 auto;
+  color: #a28b76;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.timing-bottom-ornament {
+  margin-top: 22px;
+  color: #c0a06a;
+  font-size: 29px;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .timing-section {
+    padding: 42px 20px 46px;
+  }
+
+  .timing-eyebrow {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+  }
+
+  .timing-note {
+    max-width: 280px;
+    font-size: 17px;
+  }
+}

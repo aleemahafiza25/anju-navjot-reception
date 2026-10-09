@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import ScratchReveal from "./components/ScratchReveal";
 import EnvelopeOpening from "./components/EnvelopeOpening";
+import TimingSection from "./components/TimingSection";
 
 import "./App.css";
 
@@ -205,6 +206,7 @@ const handleOpen = () => {
 
           <NikkahSection />
           <ScratchReveal />
+          <TimingSection />
 
           {/* <VerseSection /> */}
 
