@@ -2319,3 +2319,266 @@ text-shadow:
 .hero-ampersand{
   color: white;
 }
+
+/* Direct date section */
+
+.direct-date-section {
+  position: relative;
+  padding: 65px 22px 70px;
+  box-sizing: border-box;
+  text-align: center;
+  background: #fcf5ed;
+  color: #987744;
+}
+
+.direct-date-eyebrow {
+  margin: 0 0 18px;
+  color: #a78a61;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.direct-date-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.direct-date-divider span:not(.direct-date-flower) {
+  width: 45px;
+  height: 1px;
+  background: #c6a66f;
+}
+
+.direct-date-flower {
+  color: #b89458;
+  font-size: 13px;
+}
+
+.direct-date-day {
+  margin: 0;
+  color: #a78348;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(28px, 5vw, 38px);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.direct-date-number {
+  margin: 0;
+  color: #a78348;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(76px, 15vw, 105px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.direct-date-month {
+  margin: 5px 0 18px;
+  color: #a78348;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(23px, 4vw, 30px);
+  font-weight: 400;
+}
+
+.direct-date-message {
+  max-width: 320px;
+  margin: 0 auto;
+  color: #92785e;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .direct-date-section {
+    padding: 48px 20px 52px;
+  }
+}
+
+.save-date-emblem {
+  display: flex;
+  justify-content: center;
+  margin: 32px auto 0;
+  padding: 0 20px;
+}
+
+.save-date-emblem img {
+  display: block;
+  width: 230px;
+  max-width: 75%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .save-date-emblem {
+    margin-top: 24px;
+  }
+
+  .save-date-emblem img {
+    width: 150px;
+    max-width: 78%;
+  }
+}
+
+.direct-date-section {
+  padding: 65px 22px 2px;
+}
+
+/* VERTICAL OVAL SHADOW BEHIND HERO TEXT */
+
+.hero-page .hero-content::before {
+  content: "";
+  position: absolute;
+
+  width: 78%;
+  height: 145%;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(
+    ellipse 50% 50% at center,
+    rgba(35, 22, 14, 0.48) 0%,
+    rgba(35, 22, 14, 0.34) 40%,
+    rgba(35, 22, 14, 0.15) 68%,
+    rgba(35, 22, 14, 0) 100%
+  );
+
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .hero-page .hero-content::before {
+    width: 92%;
+    height: 150%;
+  }
+}
+
+
+/* DARKER VERTICAL OVAL SHADOW */
+
+.hero-page .hero-content::before {
+  content: "";
+  position: absolute;
+
+  width: 78%;
+  height: 170%;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+
+background: radial-gradient(
+  ellipse 50% 50% at center,
+  rgba(20, 12, 7, 0.75) 0%,
+  rgba(20, 12, 7, 0.58) 40%,
+  rgba(20, 12, 7, 0.30) 68%,
+  rgba(20, 12, 7, 0) 100%
+);
+
+
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .hero-page .hero-content::before {
+    width: 92%;
+    height: 150%;
+  }
+}
+
+
+/* TALL CINEMATIC SHADOW BEHIND THE TEXT */
+
+.hero-page .hero-content {
+  position: absolute;
+  z-index: 4;
+  isolation: isolate;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Vertical oval vignette */
+.hero-page .hero-content::before {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 105%;
+  height: 190%;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(24, 13, 7, 0.82) 0%,
+    rgba(24, 13, 7, 0.70) 28%,
+    rgba(24, 13, 7, 0.48) 48%,
+    rgba(24, 13, 7, 0.22) 68%,
+    rgba(24, 13, 7, 0) 100%
+  );
+
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .hero-page .hero-content::before {
+    width: 115%;
+    height: 200%;
+  }
+}
+
+
+/* COMPACT VERTICAL OVAL BEHIND TEXT */
+
+.hero-page .hero-content::before {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 90%;
+  height: 118%;
+
+
+
+background: radial-gradient(
+  ellipse at center,
+  rgba(24, 13, 7, 0.35) 0%,
+  rgba(24, 13, 7, 0.27) 35%,
+  rgba(24, 13, 7, 0.16) 60%,
+  rgba(24, 13, 7, 0.05) 80%,
+  rgba(24, 13, 7, 0) 100%
+);
+
+
+
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .hero-page .hero-content::before {
+    width: 59%;
+    height: 170%;
+  }
+}

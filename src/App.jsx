@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import ScratchReveal from "./components/ScratchReveal";
+// import ScratchReveal from "./components/ScratchReveal";
 import EnvelopeOpening from "./components/EnvelopeOpening";
 import TimingSection from "./components/TimingSection";
 
@@ -205,8 +205,29 @@ const handleOpen = () => {
 
 
           <NikkahSection />
-          <ScratchReveal />
-          <TimingSection />
+
+<section className="direct-date-section">
+  <p className="direct-date-eyebrow">SAVE THE DATE</p>
+
+  <div className="direct-date-divider">
+    <span />
+    <span className="direct-date-flower">✦</span>
+    <span />
+  </div>
+
+  <h2 className="direct-date-day">Wednesday</h2>
+
+  <p className="direct-date-number">25</p>
+
+  <p className="direct-date-month">November 2026</p>
+<div className="save-date-emblem">
+  <img
+    src="/weddings/invitation/save-the-date.png"
+    alt="Save the date"
+  />
+</div>
+</section>
+<TimingSection />
 
           {/* <VerseSection /> */}
 
@@ -305,3 +326,4 @@ const handleOpen = () => {
 }
 
 export default App;
+

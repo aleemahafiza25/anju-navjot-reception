@@ -15,7 +15,10 @@ export default function EnvelopeOpening({ onOpen }) {
     // Give React a moment to render the video
     setTimeout(async () => {
       try {
-        await videoRef.current?.play();
+        if (videoRef.current) {
+  videoRef.current.playbackRate = 1.5;
+  await videoRef.current.play();
+}
       } catch (error) {
         console.error("Video could not start:", error);
       }
@@ -27,11 +30,11 @@ export default function EnvelopeOpening({ onOpen }) {
     setFinishing(true);
 
     // Wait for the fade to finish, then show the invitation
-    setTimeout(() => {
-      if (onOpen) {
-        onOpen();
-      }
-    }, 1200);
+setTimeout(() => {
+  if (onOpen) {
+    onOpen();
+  }
+}, 400);
   };
 
   return (

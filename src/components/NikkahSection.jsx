@@ -33,7 +33,7 @@ export default function NikkahSection() {
             </p>
 
             <p className="nikkah-parents">
-              Late Sd MR Tarsem Kaur &amp; Late Sdn MRS Sucha Singh
+              Late Sdn Tarsem Kaur &amp; Late Sd Mrs Sucha Singh
             </p>
 
             {/* With */}
@@ -52,7 +52,7 @@ export default function NikkahSection() {
             </p>
 
             <p className="nikkah-parents">
-              MR Umrao Singh Bhandari &amp; MRS Chaita D.Bhandari
+              Mr Umrao Singh Bhandari &amp; Mrs Chaita D.Bhandari
             </p>
 
             {/* Message */}
