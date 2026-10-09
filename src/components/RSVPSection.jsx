@@ -115,7 +115,7 @@ export default function RSVPSection() {
             <p>
               Your response has been received.
               <br />
-              We look forward to celebrating with you.
+              We look forward to celebrate with you.
             </p>
           </div>
         )}

@@ -28,13 +28,18 @@ export default function NikkahSection() {
             </div>
 
             {/* Groom parents */}
-            <p className="nikkah-relation">
-              Grand S/o
-            </p>
 
-            <p className="nikkah-parents">
-              Late Sdn Tarsem Kaur &amp; Late Sd Sucha Singh
-            </p>
+{/* Groom parents */}
+<p className="nikkah-relation">
+  Grand Son of
+</p>
+
+<p className="nikkah-parents">
+  Late Sdn Tarsem Kaur
+  <br />
+  &amp; Late Sd Sucha Singh
+</p>
+
 
             {/* With */}
             <p className="nikkah-with">
@@ -45,15 +50,24 @@ export default function NikkahSection() {
             <h2 className="nikkah-name nikkah-bride">
               Anju
             </h2>
-
+            <div className="nikkah-divider">
+              <span></span>
+              <b>✦</b>
+              <span></span>
+            </div>
             {/* Bride parents */}
-            <p className="nikkah-relation">
-              DAUGHTER OF
-            </p>
 
-            <p className="nikkah-parents">
-              Mr Umrao Singh Bhandari &amp; Mrs Chaita D.Bhandari
-            </p>
+{/* Bride parents */}
+<p className="nikkah-relation">
+  Daughter of
+</p>
+
+<p className="nikkah-parents">
+  Mr Umrao Singh Bhandari
+  <br />
+  &amp; Mrs Chaita D. Bhandari
+</p>
+
 
             {/* Message */}
             <h3 className="nikkah-message-title">
@@ -67,7 +81,7 @@ export default function NikkahSection() {
               <br />
               unforgettable memories as
               <br />
-              we begin our forever.
+              we begin our journey forever.
             </p>
 
           </div>

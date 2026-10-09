@@ -31,9 +31,9 @@
 
   background-image: url("/weddings/invitation/nikkah-bg.png");
   background-repeat: no-repeat;
+background-size: 100% 100%;
+background-position: center top;
 
-  background-position: center center;
-  background-size: 102% 102%;
 }
 
 
@@ -413,17 +413,16 @@
       145vw gives the section enough vertical room
       without creating the huge fixed 900px block.
     */
-    aspect-ratio: 620 / 900;
+   aspect-ratio: 620 / 960;
 
     background-size: 102% 102%;
     background-position: center center;
   }
 
 
-  .nikkah-arch {
-    padding:
-      8% 11% 13%;
-  }
+.nikkah-arch {
+  padding: 30% 11% 13%;
+}
 
 
   .nikkah-bismillah {
@@ -498,7 +497,7 @@
 
 
   .nikkah-message-title {
-    font-size: clamp(20px, 6.5vw, 24px);
+    font-size: clamp(22px, 6.7vw, 26px);
 
     margin-top: 20px;
     margin-bottom: 7px;
@@ -533,10 +532,11 @@
   }
 
 
-  .nikkah-arch {
-    padding-left: 9%;
-    padding-right: 9%;
-  }
+.nikkah-arch {
+  padding-top: 18%;
+  padding-left: 9%;
+  padding-right: 9%;
+}
 
 
   .nikkah-bismillah {
@@ -713,3 +713,39 @@
   }
 }
 
+
+/* Larger family details on the invitation */
+
+.nikkah-relation {
+  font-size: 13px !important;
+  letter-spacing: 3px;
+  line-height: 1.6;
+}
+
+.nikkah-parents {
+  font-size: 19px !important;
+  line-height: 1.6;
+}
+
+/* Keep the family details readable on mobile */
+@media (max-width: 600px) {
+  .nikkah-relation {
+    font-size: 8px !important;
+    letter-spacing: 2.5px;
+  }
+
+  .nikkah-parents {
+    font-size: 14px !important;
+    line-height: 1.5;
+  }
+}
+
+
+.nikkah-inner {
+  /* keep your existing properties */
+
+  background-image: url("/weddings/invitation/nikkah-bg.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 112% 112%;
+}
