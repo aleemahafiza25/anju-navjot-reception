@@ -158,7 +158,7 @@ const handleOpen = () => {
 <div className="hero-content">
 
   <p className="hero-welcome">
-    You are Invited to the
+    You are invited to the
   </p>
 
   <h1 className="hero-ceremony">
