@@ -202,9 +202,9 @@ const handleOpen = () => {
               OTHER SECTIONS
              ========================= */}
 
-          <ScratchReveal />
 
           <NikkahSection />
+          <ScratchReveal />
 
           {/* <VerseSection /> */}
 
