@@ -33,7 +33,7 @@ export default function NikkahSection() {
             </p>
 
             <p className="nikkah-parents">
-              Late Sdn Tarsem Kaur &amp; Late Sd Mrs Sucha Singh
+              Late Sdn Tarsem Kaur &amp; Late Sd Sucha Singh
             </p>
 
             {/* With */}
