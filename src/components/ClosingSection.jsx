@@ -17,7 +17,7 @@ export default function ClosingSection() {
 
     <p className="closing-subheading">
       Sending warm wishes and looking forward
-      to see you.
+      to seeing you.
     </p>
   </div>
 
