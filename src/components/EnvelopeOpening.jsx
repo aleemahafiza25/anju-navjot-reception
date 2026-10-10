@@ -50,6 +50,7 @@ setTimeout(() => {
       src="/weddings/opening/opening.mp4"
       playsInline
       preload="auto"
+      muted
       onEnded={handleVideoEnd}
       
     />
