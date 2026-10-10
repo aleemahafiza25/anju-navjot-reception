@@ -16,7 +16,7 @@ export default function EnvelopeOpening({ onOpen }) {
     setTimeout(async () => {
       try {
         if (videoRef.current) {
-  videoRef.current.playbackRate = 1.5;
+  videoRef.current.playbackRate = 1.8;
   await videoRef.current.play();
 }
       } catch (error) {
