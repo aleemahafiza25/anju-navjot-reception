@@ -2712,3 +2712,18 @@ background: radial-gradient(
     display: none !important;
   }
 }
+
+
+.save-date-emblem img {
+  width: 240px;
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .save-date-emblem img {
+    width: 230px;
+  }
+}

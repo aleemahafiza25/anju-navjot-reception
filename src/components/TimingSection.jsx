@@ -19,7 +19,7 @@ export default function TimingSection() {
       </div>
 
       <p className="timing-note">
-        We look forward to celebarate this special evening with you.
+        We look forward to celebrate this special evening with you.
       </p>
 
       <div className="timing-bottom-ornament">❧</div>

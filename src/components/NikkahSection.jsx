@@ -31,7 +31,7 @@ export default function NikkahSection() {
 
 {/* Groom parents */}
 <p className="nikkah-relation">
-  Grand Son of
+  Grandson of
 </p>
 
 <p className="nikkah-parents">
@@ -43,7 +43,7 @@ export default function NikkahSection() {
 
             {/* With */}
             <p className="nikkah-with">
-              With
+              And
             </p>
 
             {/* Bride */}
@@ -81,7 +81,7 @@ export default function NikkahSection() {
               <br />
               unforgettable memories as
               <br />
-              we begin our journey forever.
+              we begin our journey.
             </p>
 
           </div>
