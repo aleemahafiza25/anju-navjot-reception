@@ -43,7 +43,7 @@ export default function NikkahSection() {
 
             {/* With */}
             <p className="nikkah-with">
-              And
+              and
             </p>
 
             {/* Bride */}
