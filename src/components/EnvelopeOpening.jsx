@@ -1,52 +1,56 @@
+
 import { useEffect, useRef, useState } from "react";
 import "./EnvelopeOpening.css";
 
 export default function EnvelopeOpening({ onOpen, onStart }) {
   const videoRef = useRef(null);
+
   const [started, setStarted] = useState(false);
   const [finishing, setFinishing] = useState(false);
   const [autoplayBlocked, setAutoplayBlocked] = useState(false);
 
   // Automatically play the envelope video when the page loads
- useEffect(() => {
-  const video = videoRef.current;
+  useEffect(() => {
+    const video = videoRef.current;
 
-  if (!video) return;
+    if (!video) return;
 
-  video.muted = false;
-  video.playsInline = true;
-  video.playbackRate = 1.8;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.playbackRate = 1.8;
 
-  const startVideo = async () => {
-    try {
-      await video.play();
+    const startVideo = async () => {
+      try {
+        await video.play();
 
-      setStarted(true);
-      setAutoplayBlocked(false);
+        setStarted(true);
+        setAutoplayBlocked(false);
 
-      // Prepare background music while the envelope video plays
-      if (onStart) {
-        await onStart();
+        // Prepare background music while the envelope video plays
+        if (onStart) {
+          await onStart();
+        }
+      } catch (error) {
+        console.log("Autoplay was blocked by the browser:", error);
+        setAutoplayBlocked(true);
       }
-    } catch (error) {
-      console.log("Autoplay was blocked by the browser:", error);
-      setAutoplayBlocked(true);
-    }
-  };
+    };
 
-  startVideo();
-}, []);
+    startVideo();
+  }, [onStart]);
 
-
-  // Fallback: start the video when the guest taps the screen
+  // Fallback only if the browser blocks autoplay
   const handleOpen = async () => {
     if (started || finishing) return;
 
     const video = videoRef.current;
+
     if (!video) return;
 
     try {
       video.muted = true;
+      video.defaultMuted = true;
       video.playsInline = true;
       video.playbackRate = 1.8;
 
@@ -60,7 +64,6 @@ export default function EnvelopeOpening({ onOpen, onStart }) {
       setAutoplayBlocked(false);
     } catch (error) {
       console.error("Video could not start:", error);
-      setStarted(false);
       setAutoplayBlocked(true);
     }
   };
@@ -82,7 +85,9 @@ export default function EnvelopeOpening({ onOpen, onStart }) {
     <section
       className={`envelope-screen ${
         started ? "video-started" : ""
-      } ${finishing ? "finishing" : ""}`}
+      } ${finishing ? "finishing" : ""} ${
+        autoplayBlocked ? "autoplay-blocked" : ""
+      }`}
       onClick={autoplayBlocked ? handleOpen : undefined}
     >
       <video
@@ -91,11 +96,20 @@ export default function EnvelopeOpening({ onOpen, onStart }) {
         src="/weddings/opening/opening.mp4"
         autoPlay
         playsInline
-        volume={10}
+        muted
         preload="auto"
         onEnded={handleVideoEnd}
       />
 
+      {autoplayBlocked && !started && (
+        <button
+          type="button"
+          className="tap-to-open"
+          onClick={handleOpen}
+        >
+          Tap to Open
+        </button>
+      )}
     </section>
   );
 }
