@@ -8,28 +8,35 @@ export default function EnvelopeOpening({ onOpen, onStart }) {
   const [autoplayBlocked, setAutoplayBlocked] = useState(false);
 
   // Automatically play the envelope video when the page loads
-  useEffect(() => {
-    const video = videoRef.current;
+ useEffect(() => {
+  const video = videoRef.current;
 
-    if (!video) return;
+  if (!video) return;
 
-    video.muted = true;
-    video.playsInline = true;
-    video.playbackRate = 1.8;
+  video.muted = true;
+  video.playsInline = true;
+  video.playbackRate = 1.8;
 
-    const startVideo = async () => {
-      try {
-        await video.play();
-        setStarted(true);
-        setAutoplayBlocked(false);
-      } catch (error) {
-        console.log("Autoplay was blocked by the browser:", error);
-        setAutoplayBlocked(true);
+  const startVideo = async () => {
+    try {
+      await video.play();
+
+      setStarted(true);
+      setAutoplayBlocked(false);
+
+      // Prepare background music while the envelope video plays
+      if (onStart) {
+        await onStart();
       }
-    };
+    } catch (error) {
+      console.log("Autoplay was blocked by the browser:", error);
+      setAutoplayBlocked(true);
+    }
+  };
 
-    startVideo();
-  }, []);
+  startVideo();
+}, []);
+
 
   // Fallback: start the video when the guest taps the screen
   const handleOpen = async () => {

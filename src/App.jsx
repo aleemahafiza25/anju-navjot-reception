@@ -33,13 +33,21 @@ const startMusic = async () => {
 };
 
 // Prepare the audio element without forcing it to remain muted
-const prepareMusic = () => {
+const prepareMusic = async () => {
   const audio = audioRef.current;
   if (!audio) return;
 
-  audio.volume = 0.35;
-  audio.muted = false;
+  try {
+    audio.muted = true;
+    audio.volume = 0;
+    audio.currentTime = 0;
+
+    await audio.play();
+  } catch (error) {
+    console.log("Music preparation failed:", error);
+  }
 };
+
 
 // Open the invitation after the envelope video finishes
 const handleOpen = async () => {
