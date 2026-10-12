@@ -1,46 +1,32 @@
 import { useEffect, useRef, useState } from "react";
 import "./EnvelopeOpening.css";
 
-export default function EnvelopeOpening({ onOpen }) {
+export default function EnvelopeOpening({ onOpen, onStart }) {
   const videoRef = useRef(null);
 
   const [started, setStarted] = useState(false);
   const [finishing, setFinishing] = useState(false);
 
-  useEffect(() => {
-  const video = videoRef.current;
-  if (!video) return;
+const handleOpen = async () => {
+  if (started) return;
 
-  video.muted = true;
-  video.playsInline = true;
-  video.playbackRate = 1.8;
+  setStarted(true);
 
-  video.play()
-    .then(() => {
-      setStarted(true);
-    })
-    .catch((error) => {
-      console.log("Autoplay blocked by browser:", error);
-    });
-}, []);
+  try {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.8;
 
-  const handleOpen = async () => {
-    if (started) return;
-
-    setStarted(true);
-
-    // Give React a moment to render the video
-    setTimeout(async () => {
-      try {
-        if (videoRef.current) {
-  videoRef.current.playbackRate = 1.8;
-  await videoRef.current.play();
-}
-      } catch (error) {
-        console.error("Video could not start:", error);
+      if (onStart) {
+        await onStart();
       }
-    }, 50);
-  };
+
+      await videoRef.current.play();
+    }
+  } catch (error) {
+    console.error("Video could not start:", error);
+    setStarted(false);
+  }
+};
 
   const handleVideoEnd = () => {
     // Start the fade-out instead of immediately removing the screen
