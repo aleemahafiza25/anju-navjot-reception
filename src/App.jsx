@@ -60,7 +60,7 @@ const handleOpen = async () => {
     audio.pause();
     audio.currentTime = 0;
     audio.muted = false;
-    audio.volume = 0.35;
+    audio.volume = 0.10;
 
     await audio.play();
 
@@ -80,7 +80,7 @@ const toggleMusic = async () => {
   if (audio.paused || audio.muted || audio.volume === 0) {
     try {
       audio.muted = false;
-      audio.volume = 0.35;
+      audio.volume = 0.10;
 
       await audio.play();
       setMusicPlaying(true);
