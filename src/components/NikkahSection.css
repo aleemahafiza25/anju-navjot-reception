@@ -401,13 +401,50 @@
 }
 
 .nikkah-message-title {
-  font-size: clamp(20px, 4.2vw, 28px);
-  line-height: 1;
+  font-size: clamp(22px, 4.2vw, 28px);
+  line-height: 1.15;
   margin-bottom: 10px;
 }
 
 .nikkah-message {
-  font-size: clamp(14px, 3.2vw, 20px);
+  font-size: clamp(16px, 3.2vw, 20px);
   line-height: 1.4;
   margin-top: 0;
+}
+
+.nikkah-inner {
+  min-height: 650px;
+  min-width: 400px;
+  background-size: 100% 100%;
+}
+
+
+.nikkah-inner {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  min-width: 0;
+  min-height: 650px;
+  height: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  background-image: url("/weddings/invitation/nikkah-bg.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 100%;
+}
+
+/* Make the artwork taller on mobile */
+@media (max-width: 600px) {
+  .nikkah-inner {
+    min-height: 700px;
+  }
+}
+
+/* Taller artwork on desktop */
+@media (min-width: 601px) {
+  .nikkah-inner {
+    min-height: 960px;
+  }
 }
