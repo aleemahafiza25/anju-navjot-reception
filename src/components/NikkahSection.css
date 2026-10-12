@@ -388,3 +388,26 @@
 }
 
 
+.nikkah-message-title {
+  font-size: clamp(24px, 4.8vw, 32px);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.nikkah-message {
+  font-size: clamp(17px, 3.5vw, 22px);
+  line-height: 1.45;
+  margin-top: 0;
+}
+
+.nikkah-message-title {
+  font-size: clamp(20px, 4.2vw, 28px);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.nikkah-message {
+  font-size: clamp(14px, 3.2vw, 20px);
+  line-height: 1.4;
+  margin-top: 0;
+}
