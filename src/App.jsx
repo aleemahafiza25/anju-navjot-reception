@@ -1,19 +1,12 @@
-
 import { useEffect, useRef, useState } from "react";
 
-// import ScratchReveal from "./components/ScratchReveal";
 import EnvelopeOpening from "./components/EnvelopeOpening";
 import TimingSection from "./components/TimingSection";
-
-import "./App.css";
-
 import NikkahSection from "./components/NikkahSection";
 import ClosingSection from "./components/ClosingSection";
-// import VerseSection from "./components/VerseSection";
-// import WeddingTimeline from "./components/WeddingTimeline";
-// import CountdownSection from "./components/CountdownSection";
 import LocationSection from "./components/LocationSection";
-// import RSVPSection from "./components/RSVPSection";
+
+import "./App.css";
 
 function App() {
   const [opened, setOpened] = useState(false);
@@ -22,7 +15,7 @@ function App() {
   const audioRef = useRef(null);
   const heroVideoRef = useRef(null);
 
-  // Start background music after the invitation opens.
+  // Start background music
   const startMusic = async () => {
     const audio = audioRef.current;
 
@@ -41,7 +34,8 @@ function App() {
     }
   };
 
-  // Prepare music silently when the guest taps the envelope.
+  // Prepare music silently while the guest opens the envelope.
+  // This may help browsers that permit playback during user interaction.
   const prepareMusic = async () => {
     const audio = audioRef.current;
 
@@ -60,15 +54,22 @@ function App() {
   // Reveal the invitation when the envelope video finishes.
   const handleOpen = () => {
     setOpened(true);
+
+    // Attempt to start music immediately.
+    startMusic();
   };
 
-  // Toggle music using the music button.
+  // Toggle background music using the music button.
   const toggleMusic = async () => {
     const audio = audioRef.current;
 
     if (!audio) return;
 
-    if (audio.paused || audio.muted || audio.volume === 0) {
+    if (
+      audio.paused ||
+      audio.muted ||
+      audio.volume === 0
+    ) {
       try {
         audio.muted = false;
         audio.volume = 0.35;
@@ -86,7 +87,9 @@ function App() {
     }
   };
 
-  // Start music when the first invitation page appears.
+  // Retry music when the invitation appears.
+  // If autoplay is blocked, retry after the guest interacts
+  // with the page for the first time.
   useEffect(() => {
     if (!opened) return;
 
@@ -235,6 +238,7 @@ function App() {
 
           <TimingSection />
 
+          {/* OPTIONAL SECTIONS */}
           {/* <VerseSection /> */}
           {/* <WeddingTimeline /> */}
           {/* <CountdownSection /> */}
