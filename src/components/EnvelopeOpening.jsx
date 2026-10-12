@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./EnvelopeOpening.css";
 
 export default function EnvelopeOpening({ onOpen }) {
@@ -6,6 +6,23 @@ export default function EnvelopeOpening({ onOpen }) {
 
   const [started, setStarted] = useState(false);
   const [finishing, setFinishing] = useState(false);
+
+  useEffect(() => {
+  const video = videoRef.current;
+  if (!video) return;
+
+  video.muted = true;
+  video.playsInline = true;
+  video.playbackRate = 1.8;
+
+  video.play()
+    .then(() => {
+      setStarted(true);
+    })
+    .catch((error) => {
+      console.log("Autoplay blocked by browser:", error);
+    });
+}, []);
 
   const handleOpen = async () => {
     if (started) return;
