@@ -13,7 +13,7 @@ export default function EnvelopeOpening({ onOpen, onStart }) {
 
   if (!video) return;
 
-  video.muted = true;
+  video.muted = false;
   video.playsInline = true;
   video.playbackRate = 1.8;
 
@@ -86,15 +86,16 @@ export default function EnvelopeOpening({ onOpen, onStart }) {
       onClick={autoplayBlocked ? handleOpen : undefined}
     >
       <video
-        ref={videoRef}
-        className="opening-video"
-        src="/weddings/opening/opening.mp4"
-        autoPlay
-        playsInline
-        muted
-        preload="auto"
-        onEnded={handleVideoEnd}
-      />
+  ref={videoRef}
+  className="opening-video"
+  src="/weddings/opening/opening.mp4"
+  autoPlay
+  playsInline
+  muted={false}
+  volume={5}
+  preload="auto"
+  onEnded={handleVideoEnd}
+/>
 
     </section>
   );

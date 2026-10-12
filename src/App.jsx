@@ -22,7 +22,7 @@ const startMusic = async () => {
 
   try {
     audio.muted = false;
-    audio.volume = 0.35;
+    audio.volume = 0.10;
 
     await audio.play();
     setMusicPlaying(true);
