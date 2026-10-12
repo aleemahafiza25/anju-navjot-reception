@@ -42,10 +42,27 @@ const prepareMusic = () => {
 };
 
 // Open the invitation after the envelope video finishes
-const handleOpen = () => {
+const handleOpen = async () => {
   setOpened(true);
-  startMusic();
+
+  const audio = audioRef.current;
+  if (!audio) return;
+
+  try {
+    audio.pause();
+    audio.currentTime = 0;
+    audio.muted = false;
+    audio.volume = 0.35;
+
+    await audio.play();
+
+    setMusicPlaying(true);
+  } catch (error) {
+    console.log("Automatic music playback was blocked:", error);
+    setMusicPlaying(false);
+  }
 };
+
 
 // Music button: pause or resume
 const toggleMusic = async () => {
