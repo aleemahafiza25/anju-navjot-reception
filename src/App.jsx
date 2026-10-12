@@ -9,104 +9,65 @@ import LocationSection from "./components/LocationSection";
 import "./App.css";
 
 function App() {
-  const [opened, setOpened] = useState(false);
-  const [musicPlaying, setMusicPlaying] = useState(false);
+const [opened, setOpened] = useState(false);
+const [musicPlaying, setMusicPlaying] = useState(false);
 
-  const audioRef = useRef(null);
-  const heroVideoRef = useRef(null);
+const audioRef = useRef(null);
+const heroVideoRef = useRef(null);
 
-  // Start background music
-  const startMusic = async () => {
-    const audio = audioRef.current;
+// Start background music
+const startMusic = async () => {
+  const audio = audioRef.current;
+  if (!audio) return;
 
-    if (!audio) return;
+  try {
+    audio.muted = false;
+    audio.volume = 0.35;
 
+    await audio.play();
+    setMusicPlaying(true);
+  } catch (error) {
+    console.log("Browser blocked automatic music playback:", error);
+    setMusicPlaying(false);
+  }
+};
+
+// Prepare the audio element without forcing it to remain muted
+const prepareMusic = () => {
+  const audio = audioRef.current;
+  if (!audio) return;
+
+  audio.volume = 0.35;
+  audio.muted = false;
+};
+
+// Open the invitation after the envelope video finishes
+const handleOpen = () => {
+  setOpened(true);
+  startMusic();
+};
+
+// Music button: pause or resume
+const toggleMusic = async () => {
+  const audio = audioRef.current;
+  if (!audio) return;
+
+  if (audio.paused || audio.muted || audio.volume === 0) {
     try {
       audio.muted = false;
       audio.volume = 0.35;
 
       await audio.play();
-
       setMusicPlaying(true);
     } catch (error) {
-      console.log("Music autoplay was blocked by the browser.");
+      console.log("Could not play music:", error);
       setMusicPlaying(false);
     }
-  };
-
-  // Prepare music silently while the guest opens the envelope.
-  // This may help browsers that permit playback during user interaction.
-  const prepareMusic = async () => {
-    const audio = audioRef.current;
-
-    if (!audio) return;
-
-    try {
-      audio.volume = 0;
-      audio.muted = true;
-
-      await audio.play();
-    } catch (error) {
-      console.log("Music preparation was blocked:", error);
-    }
-  };
-
-  // Reveal the invitation when the envelope video finishes.
-  const handleOpen = () => {
-    setOpened(true);
-
-    // Attempt to start music immediately.
-    startMusic();
-  };
-
-  // Toggle background music using the music button.
-  const toggleMusic = async () => {
-    const audio = audioRef.current;
-
-    if (!audio) return;
-
-    if (
-      audio.paused ||
-      audio.muted ||
-      audio.volume === 0
-    ) {
-      try {
-        audio.muted = false;
-        audio.volume = 0.35;
-
-        await audio.play();
-
-        setMusicPlaying(true);
-      } catch (error) {
-        console.log("Could not play music:", error);
-        setMusicPlaying(false);
-      }
-    } else {
-      audio.pause();
-      setMusicPlaying(false);
-    }
-  };
-
-  // Retry music when the invitation appears.
-  // If autoplay is blocked, retry after the guest interacts
-  // with the page for the first time.
-  useEffect(() => {
-    if (!opened) return;
-
-    startMusic();
-
-    const tryStartMusic = () => {
-      startMusic();
-    };
-
-    window.addEventListener("pointerdown", tryStartMusic, {
-      once: true,
-    });
-
-    return () => {
-      window.removeEventListener("pointerdown", tryStartMusic);
-    };
-  }, [opened]);
+  } else {
+    audio.pause();
+    setMusicPlaying(false);
+  }
+};
 
   return (
     <div className="app">

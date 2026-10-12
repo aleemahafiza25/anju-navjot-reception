@@ -193,30 +193,14 @@
 
 .location-map {
   position: absolute;
-
-  /*
-     IMPORTANT:
-     Keep equal space around the map
-     so it stays completely inside
-     the decorative border.
-  */
-
-  top: 51px;
-
-  left: 18px;
-
-  right: 18px;
-
-  bottom: 50px;
-
+  top: 55px;
+  left: 17px;
+  right: 17px;
+  bottom: 110px;
   overflow: hidden;
-
-  border-radius: 21px;
-
+  border-radius: 17px;
   background: #eee7dc;
-
   z-index: 2;
-
   box-sizing: border-box;
 }
 
@@ -547,3 +531,52 @@
     width: 110px;
   }
 }
+
+/* FINAL MAP SIZE ADJUSTMENT */
+.location-map {
+  top: 55px;
+  left: 18px;
+  right: 18px;
+  bottom: 72px;
+  overflow: hidden;
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .location-map {
+    top: 55px;
+    left: 17px;
+    right: 17px;
+    bottom: 100px;
+    border-radius: 17px;
+  }
+}
+
+@media (max-width: 380px) {
+  .location-map {
+    top: 20px;
+    left: 15px;
+    right: 15px;
+    bottom: 100px;
+    border-radius: 15px;
+  }
+}
+
+
+/* FORCE MAP HEIGHT CHANGE */
+.location-map {
+  height: 250px !important;
+  top: 90px !important;
+  bottom: auto !important;
+}
+
+
+/* Keep the map shorter from the top */
+.location-map {
+  height: 290px !important;
+  top: 45px !important;
+  bottom: auto !important;
+}
+
+
