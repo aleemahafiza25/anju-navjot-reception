@@ -86,16 +86,15 @@ export default function EnvelopeOpening({ onOpen, onStart }) {
       onClick={autoplayBlocked ? handleOpen : undefined}
     >
       <video
-  ref={videoRef}
-  className="opening-video"
-  src="/weddings/opening/opening.mp4"
-  autoPlay
-  playsInline
-  muted={false}
-  volume={5}
-  preload="auto"
-  onEnded={handleVideoEnd}
-/>
+        ref={videoRef}
+        className="opening-video"
+        src="/weddings/opening/opening.mp4"
+        autoPlay
+        playsInline
+        volume={1}
+        preload="auto"
+        onEnded={handleVideoEnd}
+      />
 
     </section>
   );
