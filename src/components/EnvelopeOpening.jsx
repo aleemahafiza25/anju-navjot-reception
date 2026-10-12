@@ -91,7 +91,7 @@ export default function EnvelopeOpening({ onOpen, onStart }) {
         src="/weddings/opening/opening.mp4"
         autoPlay
         playsInline
-        volume={1}
+        volume={10}
         preload="auto"
         onEnded={handleVideoEnd}
       />
