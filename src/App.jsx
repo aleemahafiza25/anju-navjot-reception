@@ -153,9 +153,23 @@ const toggleMusic = async () => {
 
 <div className="hero-content">
   {/* First line: Parents' names */}
-  <h2 className="hero-parents">
-    Sdn. Darshan Kaur &amp; Sd. Ranjeet Singh Nandra
-  </h2>
+
+<div
+  className="hero-parents"
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100%",
+    fontSize: "17px",
+    lineHeight: 1.3,
+    textAlign: "center",
+  }}
+>
+  <span>Sdn. Darshan Kaurv &amp;</span>
+  <span> Sd. Ranjeet Singh Nandra</span>
+</div>
+
 
   {/* Second line: Invitation wording */}
   <p className="hero-invitation-line">
