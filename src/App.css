@@ -3035,3 +3035,131 @@ background: radial-gradient(
 .hero-names {
   margin-top: 0.8rem;
 }
+
+
+
+
+/* Keep the entire hero text group centred */
+.hero-content {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* First line: parents' names */
+.hero-parents {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto 22px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(0.95rem, 2.8vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  color: #fff0d2;
+  text-shadow: 0 2px 6px rgba(40, 25, 15, 0.5);
+  text-wrap: balance;
+}
+
+/* Second line: keep the sentence on one line */
+.hero-invitation-line {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(0.85rem, 2.8vw, 1.25rem);
+  line-height: 1.3;
+  text-align: center;
+  color: #fff0d2;
+  white-space: nowrap;
+}
+
+/* Third line: Reception */
+.hero-ceremony {
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  text-align: center;
+  color: #fffaf0;
+}
+
+/* Fourth line: of */
+.hero-ceremony-of {
+  width: 100%;
+  margin: 5px auto 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-style: italic;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff0d2;
+}
+
+/* Fifth line: couple's names */
+.hero-names {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 0.9;
+}
+
+/* Visually centre decorative script lettering */
+.hero-name-first,
+.hero-name-second {
+  display: block;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  left: 0;
+  font-size: inherit;
+}
+
+.hero-ampersand {
+  display: block;
+  text-align: center;
+  margin: 8px auto;
+}
+
+/* Keep the invitation sentence readable on narrow phones */
+@media (max-width: 380px) {
+  .hero-invitation-line {
+    font-size: 0.76rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-parents {
+    font-size: 0.9rem;
+  }
+}
+
+
+.hero-content > *:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.hero-content > *:nth-child(2) {
+  animation-delay: 1.1s;
+}
+
+.hero-content > *:nth-child(3) {
+  animation-delay: 1.9s;
+}
+
+.hero-content > *:nth-child(4) {
+  animation-delay: 2.5s;
+}
+
+.hero-content > *:nth-child(5) {
+  animation-delay: 3.1s;
+}

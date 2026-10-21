@@ -150,33 +150,34 @@ const toggleMusic = async () => {
               alt=""
             />
 
-            <div className="hero-content">
-  <p className="hero-welcome">
-    Together with their families
-  </p>
 
+<div className="hero-content">
+  {/* First line: Parents' names */}
   <h2 className="hero-parents">
-    Sdn. Darshan Kaur
-    <span>&amp;</span>
-    Sd. Ranjeet Singh Nandra
+    Sdn. Darshan Kaur &amp; Sd. Ranjeet Singh Nandra
   </h2>
 
-  <div className="hero-of">
-    <span></span>
-    <p>cordially invite you to the</p>
-    <span></span>
-  </div>
+  {/* Second line: Invitation wording */}
+  <p className="hero-invitation-line">
+    cordially invite you to celebrate the
+  </p>
 
+  {/* Third line: Reception */}
   <h1 className="hero-ceremony">
-  Reception <span className="reception-of">of</span>
-</h1>
+    Reception
+  </h1>
 
+  {/* Fourth line: of */}
+  <p className="hero-ceremony-of">of</p>
+
+  {/* Fifth line: Couple's names */}
   <div className="hero-names">
     <span className="hero-name-first">Navjot</span>
     <span className="hero-ampersand">&amp;</span>
     <span className="hero-name-second">Anju</span>
   </div>
 </div>
+
 
             <div className="scroll-indicator">
               <span>Scroll down</span>
